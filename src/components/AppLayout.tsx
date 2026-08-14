@@ -6,7 +6,8 @@ import AiFeatures from '@/components/sections/AiFeatures';
 import LogoMarquee from '@/components/sections/LogoMarquee';
 import GrowBusiness from '@/components/sections/GrowBusiness';
 import StatsRow from '@/components/sections/StatsRow';
-import LiveResults from '@/components/sections/LiveResults';
+import ContractorsServed from '@/components/sections/ContractorsServed';
+import RoiCalculator from '@/components/sections/RoiCalculator';
 import Projects from '@/components/sections/Projects';
 import Testimonials from '@/components/sections/Testimonials';
 import Pricing from '@/components/sections/Pricing';
@@ -22,7 +23,8 @@ const AppLayout: React.FC = () => (
       <LogoMarquee />
       <GrowBusiness />
       <StatsRow />
-      <LiveResults />
+      <ContractorsServed />
+      <RoiCalculator />
       <Projects />
 
       <Testimonials />

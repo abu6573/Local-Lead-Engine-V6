@@ -1,34 +1,11 @@
 import React, { useState } from 'react';
 import { ArrowLeft, ArrowRight, Quote } from 'lucide-react';
-import { images, testimonials } from '@/lib/site-data';
+import { testimonials } from '@/lib/site-data';
 import { Avatar, Stars } from '@/components/kit';
-import { MaskHeading, Reveal, useInView } from '@/components/motion';
-
-const ScoreRing = ({ score, animate }: { score: number; animate: boolean }) => {
-  const r = 20;
-  const c = 2 * Math.PI * r;
-  return (
-    <svg viewBox="0 0 48 48" className="h-12 w-12 -rotate-90" aria-hidden="true">
-      <circle cx="24" cy="24" r={r} fill="none" stroke="#F3E7E0" strokeWidth="5" />
-      <circle
-        cx="24"
-        cy="24"
-        r={r}
-        fill="none"
-        stroke="#F1592A"
-        strokeWidth="5"
-        strokeLinecap="round"
-        strokeDasharray={c}
-        strokeDashoffset={animate ? c - (c * score) / 100 : c}
-        style={{ transition: 'stroke-dashoffset 1.4s cubic-bezier(0.22,1,0.36,1) 300ms' }}
-      />
-    </svg>
-  );
-};
+import { MaskHeading, Reveal } from '@/components/motion';
 
 const Testimonials: React.FC = () => {
   const [i, setI] = useState(0);
-  const { ref, inView } = useInView<HTMLDivElement>(0.25);
   const t = testimonials[i];
 
   const go = (dir: number) =>
@@ -39,12 +16,11 @@ const Testimonials: React.FC = () => {
       <div className="shell">
         <Reveal
           y={40}
-          className="relative overflow-hidden rounded-[2.25rem] bg-navy px-6 py-12 sm:px-10 sm:py-14 lg:px-14 lg:py-16"
+          className="relative overflow-hidden rounded-[2.25rem] bg-gradient-to-br from-ink to-navy px-6 py-12 sm:px-10 sm:py-14 lg:px-14 lg:py-16 shadow-card"
         >
-          <div className="dot-grid pointer-events-none absolute inset-0" aria-hidden="true" />
           <div className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-brand/20 blur-3xl" />
 
-          <div ref={ref} className="relative grid items-center gap-12 lg:grid-cols-[1.1fr_1fr]">
+          <div className="relative grid items-center gap-12 lg:grid-cols-[1.1fr_1fr]">
             {/* ---- quote side ---- */}
             <div>
               <MaskHeading
@@ -76,7 +52,7 @@ const Testimonials: React.FC = () => {
                   <Stars className="h-[1.05rem] w-[1.05rem]" />
                   <span className="text-[0.9375rem] font-bold text-white">
                     {t.rating}{' '}
-                    <span className="font-medium text-white/55">on {t.platform}</span>
+                    <span className="font-medium text-white/55">{t.platform}</span>
                   </span>
                 </div>
               </div>
@@ -113,33 +89,18 @@ const Testimonials: React.FC = () => {
 
             {/* ---- image side ---- */}
             <div className="relative mx-auto w-full max-w-[24rem] lg:max-w-none">
-              <div className="group relative overflow-hidden rounded-[1.75rem]">
+              <div className="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-navy-dark/40">
                 <img
-                  src={images.twoMen}
-                  alt="Two clients enjoying drinks and conversation on a sunny terrace"
-                  width={1100}
-                  height={1473}
-                  className="aspect-[4/5] w-full object-cover transition-transform duration-[900ms] ease-smooth group-hover:scale-[1.06]"
+                  src="https://ik.imagekit.io/Localleadengine/Google%20Ads%20Dashboard.png"
+                  alt="Google Ads Dashboard performance analytics"
+                  className="w-full object-cover transition-transform duration-[900ms] ease-smooth group-hover:scale-[1.04]"
                   loading="lazy"
                 />
               </div>
 
               <span className="absolute left-4 top-4 rounded-full bg-brand px-3.5 py-1.5 text-[0.75rem] font-bold text-white shadow-chip">
-                Reviews
+                Recommendations
               </span>
-
-              <div
-                className="absolute -bottom-5 right-0 animate-floaty sm:-right-4"
-                style={{ animationDelay: '0.8s' }}
-              >
-                <div className="flex items-center gap-3 rounded-2xl bg-white p-3.5 pr-5 shadow-lift">
-                  <ScoreRing score={t.score} animate={inView} />
-                  <div>
-                    <p className="text-[0.75rem] font-medium text-warm-light">Page Score</p>
-                    <p className="text-xl font-extrabold leading-tight text-ink">{t.score}</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </Reveal>

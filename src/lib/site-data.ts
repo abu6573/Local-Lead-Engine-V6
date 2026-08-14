@@ -32,6 +32,22 @@ export type NavItem = {
 
 export const navItems: NavItem[] = [
   { label: 'Home', href: '/' },
+  {
+    label: 'Contractors',
+    href: '/contractors/google-ads-for-roofing-contractors/',
+    children: [
+      { label: 'Roofing Contractors', href: '/contractors/google-ads-for-roofing-contractors/' },
+      { label: 'Foundation Repair', href: '/contractors/google-ads-for-foundation-repair-contractors/' },
+      { label: 'Plumbing Contractors', href: '/contractors/google-ads-for-plumbing-contractors/' },
+      { label: 'HVAC Contractors', href: '/contractors/google-ads-for-hvac-contractors/' },
+      { label: 'Home Remodeling', href: '/contractors/google-ads-for-remodeling-contractors/' },
+      { label: 'Window & Door', href: '/contractors/google-ads-for-window-door-contractors/' },
+      { label: 'Solar Contractors', href: '/contractors/google-ads-for-solar-contractors/' },
+      { label: 'Pool Contractors', href: '/contractors/google-ads-for-pool-contractors/' },
+      { label: 'Deck & Outdoor Living', href: '/contractors/google-ads-for-deck-outdoor-living-contractors/' },
+      { label: 'General Contractors', href: '/contractors/google-ads-for-general-contractors/' },
+    ],
+  },
   { label: 'Services', href: '/services' },
   { label: 'Case Study', href: '/case-studies' },
   { label: 'About Us', href: '/about' },
@@ -85,88 +101,223 @@ export const projectFilters = [
   'Show All',
   'HVAC',
   'Roofing',
-  'Plumbing',
-  'Electrical',
-  'Restoration',
+  'Home Remodeling',
+  'Decks, Patios & Outdoor Living',
+  'Window & Door',
+  'Solar',
 ] as const;
 
 export type Project = {
   id: string;
   title: string;
   category: string;
+  tradeSlug?: string;
   tags: string[];
   image: string;
   summary: string;
   metric: string;
   metricLabel: string;
+  location?: string;
+  timeframe?: string;
+  challenge?: string;
+  solution?: string[];
+  resultsList?: { label: string; value: string }[];
+  clientQuote?: { quote: string; author: string; title: string };
 };
 
 export const projects: Project[] = [
   {
-    id: 'titan-hvac',
-    title: 'Titan HVAC & Air Conditioning',
+    id: 'nc-heating-air',
+    title: 'NC Heating & Air',
     category: 'HVAC',
-    tags: ['HVAC', 'Search Ads'],
-    image: images.teamDesk,
+    tradeSlug: 'hvac',
+    tags: ['HVAC', 'Search Ads', 'Call Tracking'],
+    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80',
     summary:
-      'Scaled monthly booked AC installation and emergency repair calls from 34 to 182 in 90 days while slashing cost-per-lead by 68%.',
+      'Scaled monthly booked AC replacement and emergency repair calls from 34 to 182 in 90 days while slashing cost-per-lead by 68%.',
     metric: '6.2x',
     metricLabel: 'Ad Spend ROAS',
+    location: 'Raleigh-Durham, NC',
+    timeframe: '90 Days',
+    challenge:
+      'NC Heating & Air was spending $8,000/month on generic Google Ads campaigns that brought low-margin tune-up calls and shared leads.',
+    solution: [
+      'Built a high-converting mobile-first landing page with direct click-to-call dispatch buttons.',
+      'Implemented aggressive negative keyword lists blocking DIY and cheap repair search terms.',
+      'Configured weather-triggered dynamic bid adjustments for heatwave surges.',
+      'Synced call tracking with ServiceTitan to track exact closed jobs per ad campaign.',
+    ],
+    resultsList: [
+      { label: 'Monthly Booked Calls', value: '182 Calls' },
+      { label: 'Cost Per Booked Lead', value: '$68.50' },
+      { label: 'Booked Replacement Jobs', value: '38 Completed Jobs' },
+    ],
+    clientQuote: {
+      quote:
+        'Local Lead Engine completely transformed our dispatch queue. We stopped buying shared leads and now run 100% on our own high-intent Google Ads call volume.',
+      author: 'Marcus Vance',
+      title: 'Owner, NC Heating & Air',
+    },
   },
   {
-    id: 'apex-roofing',
-    title: 'Apex Roofing & Solar',
+    id: 'paragon-roofing',
+    title: 'Paragon Roofing',
     category: 'Roofing',
-    tags: ['Roofing', 'LSA'],
-    image: images.coworking,
+    tradeSlug: 'roofing',
+    tags: ['Roofing', 'Search Ads', 'LSA'],
+    image: 'https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?auto=format&fit=crop&w=1200&q=80',
     summary:
-      'Captured $420,000 in full roof replacement contracts in Q2 using hyper-targeted Google Search Ads and Local Services Ads.',
+      'Captured 38 full roof replacement contracts in Q2 using storm-surge bidding and high-intent local search ads.',
     metric: '142',
-    metricLabel: 'Full Roof Replacement Leads',
+    metricLabel: 'Full Replacement Leads',
+    location: 'Dallas-Fort Worth, TX',
+    timeframe: '120 Days',
+    challenge:
+      'High competitor CPCs were eating up ad budgets, and generic traffic was wasting money on minor patch repairs instead of full roof replacements.',
+    solution: [
+      'Created landing pages highlighting GAF Master Elite credentials and financing options.',
+      'Optimized Google Local Services Ads (LSA) alongside Search Ads for maximum top-of-page real estate.',
+      'Integrated CRM tracking to auto-pause campaigns in non-profitable postal codes.',
+    ],
+    resultsList: [
+      { label: 'Full Roof Swaps Booked', value: '38 Jobs' },
+      { label: 'Qualified Inbound Leads', value: '142 Leads' },
+      { label: 'Pipeline ROAS', value: '7.8x' },
+    ],
+    clientQuote: {
+      quote:
+        'We booked 38 full roof replacements in four months. The quality of calls coming in is unmatched.',
+      author: 'David Miller',
+      title: 'Founder, Paragon Roofing',
+    },
   },
   {
-    id: 'vanguard-plumbing',
-    title: 'Vanguard Plumbing & Drain',
-    category: 'Plumbing',
-    tags: ['Plumbing', 'Search Ads'],
-    image: images.presenting,
+    id: 'home-repair-service',
+    title: 'Home Repair Service',
+    category: 'Home Remodeling',
+    tradeSlug: 'remodeling',
+    tags: ['Home Remodeling', 'Landing Pages', 'High-Ticket'],
+    image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80',
     summary:
-      'Eliminated 42% of wasted ad spend in 30 days with a negative keyword guard while doubling 24/7 emergency drain cleaning calls.',
-    metric: '$32.50',
-    metricLabel: 'Average Cost Per Lead',
+      'Shifted focus from low-budget handyman repairs to exclusive kitchen & master bathroom design-build consultations.',
+    metric: '18.4%',
+    metricLabel: 'Form Conversion Rate',
+    location: 'Denver, CO',
+    timeframe: '60 Days',
+    challenge:
+      'Inundated with calls for tiny repairs and quick fixes, consuming team bandwidth without generating high-ticket design jobs.',
+    solution: [
+      'Engineered multi-step pre-qualification forms with mandatory project scope selection.',
+      'Targeted high median-income zip codes across the metro area.',
+      'Built an interactive project showcase displaying 3D renderings and customer video testimonials.',
+    ],
+    resultsList: [
+      { label: 'Qualified Consultations', value: '46 Leads' },
+      { label: 'Form Conversion Rate', value: '18.4%' },
+      { label: 'Signed Design Contracts', value: '18 Remodel Jobs' },
+    ],
+    clientQuote: {
+      quote:
+        'Every lead that books through our new page knows our price range and is ready for a serious design consultation. Night and day difference.',
+      author: 'Elena Rostova',
+      title: 'Owner, Home Repair Service',
+    },
   },
   {
-    id: 'premier-electric',
-    title: 'Premier Electrical Services',
-    category: 'Electrical',
-    tags: ['Electrical', 'Landing Pages'],
-    image: images.twoLaptops,
+    id: 'hoover-deck-porch',
+    title: 'Hoover Deck & Porch',
+    category: 'Decks, Patios & Outdoor Living',
+    tradeSlug: 'deck-patio-outdoor-living',
+    tags: ['Decks, Patios & Outdoor Living', 'Decks', 'LSA'],
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
     summary:
-      'Built a high-converting panel upgrade landing page that converted 28.4% of Google Ads clicks into direct booked phone appointments.',
-    metric: '215',
-    metricLabel: 'Booked Panel Upgrades',
+      'Filled entire spring and summer custom composite deck, porch, and patio construction schedule in under 45 days.',
+    metric: '210',
+    metricLabel: 'Custom Deck Inquiries',
+    location: 'Birmingham, AL',
+    timeframe: '45 Days',
+    challenge:
+      'Slow winter lead volume created seasonal cash flow gaps and delayed spring project scheduling.',
+    solution: [
+      'Launched pre-season composite deck & porch campaign in early February with Google Search & LSA.',
+      'Showcased custom outdoor kitchens, pergolas, screened porches, and fire pit upgrades.',
+      'Offered early booking price locks for spring installation dates.',
+    ],
+    resultsList: [
+      { label: 'Signed Deck & Porch Contracts', value: '28 Projects' },
+      { label: 'Average Job Value', value: '$24,500' },
+      { label: 'Schedule Capacity', value: '100% Booked' },
+    ],
+    clientQuote: {
+      quote:
+        'Our entire 6-month deck & porch installation queue was filled before spring even officially started. Incredible results.',
+      author: 'Jason Cole',
+      title: 'Founder, Hoover Deck & Porch',
+    },
   },
   {
-    id: 'proclean-restoration',
-    title: 'ProClean Water & Fire Restoration',
-    category: 'Restoration',
-    tags: ['Restoration', 'Search Ads'],
-    image: images.deskFlat,
+    id: 'universal-windows-direct-charlotte',
+    title: 'Universal Windows Direct of Charlotte',
+    category: 'Window & Door',
+    tradeSlug: 'windows-doors',
+    tags: ['Window & Door', 'Search Ads', 'Landing Pages'],
+    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80',
     summary:
-      'Dominating 24/7 emergency water damage search queries across three major metro counties with instant click-to-call mobile ads.',
-    metric: '78%',
-    metricLabel: 'Call Conversion Rate',
+      'Booked 86 full-house window & custom door replacement consultations with high-converting mobile campaigns.',
+    metric: '24.2%',
+    metricLabel: 'Click-to-Call Rate',
+    location: 'Charlotte, NC',
+    timeframe: '90 Days',
+    challenge:
+      'Wasting budget on single broken glass repair requests rather than profitable 5+ window replacement & door projects.',
+    solution: [
+      'Excluded all glass repair terms and targeted 5+ window package and custom door replacement keywords.',
+      'Highlighted energy efficiency savings, lifetime warranty benefits, and financing options.',
+      'Offered an instant online measurement scheduling tool on the mobile landing page.',
+    ],
+    resultsList: [
+      { label: 'In-Home Consults', value: '86 Consults' },
+      { label: 'Average Order Value', value: '$18,400' },
+      { label: 'Ad Spend ROAS', value: '6.9x' },
+    ],
+    clientQuote: {
+      quote:
+        'Local Lead Engine helped us dominate window and door replacement searches in Charlotte. The return on investment is undeniable.',
+      author: 'Carlos Mendez',
+      title: 'Owner, Universal Windows Direct of Charlotte',
+    },
   },
   {
-    id: 'precision-paving',
-    title: 'Precision Paving & Masonry',
-    category: 'Plumbing',
-    tags: ['Restoration', 'LSA'],
-    image: images.bedroomDesk,
+    id: 'california-solar-electric',
+    title: 'California Solar & Electric Inc.',
+    category: 'Solar',
+    tradeSlug: 'solar',
+    tags: ['Solar', 'Clean Energy', 'Search Ads'],
+    image: 'https://images.unsplash.com/photo-1508873696983-2df5057d0168?auto=format&fit=crop&w=1200&q=80',
     summary:
-      'Out-ranking national lead aggregators with hyper-local geo-fencing and automated Google LSA lead dispute management.',
-    metric: '7.1x',
-    metricLabel: 'Return on Ad Spend',
+      'Replaced generic lead brokers with exclusive local residential solar and battery storage Google Ads leads.',
+    metric: '5.5x',
+    metricLabel: 'ROAS on Solar Installs',
+    location: 'San Diego, CA',
+    timeframe: '6 Months',
+    challenge:
+      'Paying high fees per lead to third-party brokers who resold the exact same homeowner lead to 4 competing solar companies.',
+    solution: [
+      'Designed local solar tax credit & utility rebate calculator landing page.',
+      'Bypassed shared lead portals with direct 1-on-1 phone calls and site audit bookings.',
+      'Filtered out homes with electric bills under $150/mo to ensure project viability.',
+    ],
+    resultsList: [
+      { label: 'Exclusive Solar Leads', value: '94 Leads' },
+      { label: 'Cost Per Exclusive Lead', value: '$105.00' },
+      { label: 'Installed Systems', value: '22 Home Systems' },
+    ],
+    clientQuote: {
+      quote:
+        'Having 100% exclusive leads changes everything. Our closing rate jumped dramatically because we are the only solar company calling.',
+      author: 'Samantha Lee',
+      title: 'Sales Director, California Solar & Electric Inc.',
+    },
   },
 ];
 
@@ -182,29 +333,83 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      'Local Lead Engine turned our Google Ads around in less than 30 days. We went from burning $5,000/month on junk clicks to getting 65+ exclusive calls every single month for our HVAC business.',
-    name: 'Marcus Vance',
-    role: 'Owner, Vance Heating & Air',
-    rating: '5.0/5',
-    platform: 'Google Reviews',
+      'Working with Local Lead Engine was super helpful. He did an amazing job at reviewing my website, making corrections, providing marketing materials, and managing my advertisements.',
+    name: 'Jose P.',
+    role: 'Business Owner',
+    rating: '4.9/5',
+    platform: 'Verified Client Review',
     score: 98,
   },
   {
     quote:
-      'Our previous agency kept bragging about "impressions" and "clicks". Local Lead Engine actually tracks booked jobs inside ServiceTitan. Our return on ad spend is over 6x now!',
-    name: 'Sarah Jenkins',
-    role: 'Operations Director, Apex Roofing',
+      "I highly recommend his team. He's helped me grow my business through his expertise on Google Ads and strategic SEO recommendations.",
+    name: 'Kristin P.',
+    role: 'CEO',
     rating: '4.9/5',
-    platform: 'Clutch Contractor Review',
+    platform: 'Verified Client Review',
+    score: 97,
+  },
+  {
+    quote:
+      'He is an asset that any company should seriously use if they need marketing. His expertise, insight, and creativeness blew us away.',
+    name: 'Steven H.',
+    role: 'Business Owner',
+    rating: '4.9/5',
+    platform: 'Verified Client Review',
+    score: 99,
+  },
+  {
+    quote:
+      'A pleasure to work with. Creative tech is usually a pain to deal with, but he was super easy to collaborate with and consistently met all deadlines.',
+    name: 'Robert M.',
+    role: 'CEO',
+    rating: '4.9/5',
+    platform: 'Verified Client Review',
     score: 96,
   },
   {
     quote:
-      'The Local Services Ads (LSA) setup alone was worth every dollar. We got our Google Screened badge and high-ticket plumbing leads started coming directly to our dispatch board.',
-    name: 'Dave Kowalski',
-    role: 'Founder, Kowalski Plumbing & Drain',
-    rating: '5.0/5',
-    platform: 'Google Partner Verified',
+      'He really goes the extra mile and is highly knowledgeable in web design, local marketing, and customer relations.',
+    name: 'Charles G.',
+    role: 'Business Owner',
+    rating: '4.9/5',
+    platform: 'Verified Client Review',
+    score: 98,
+  },
+  {
+    quote:
+      'They are highly recommended. Their expertise in web design and local SEO is solid, and they helped improve our entire business presence.',
+    name: 'Naoki F.',
+    role: 'CEO',
+    rating: '4.9/5',
+    platform: 'Verified Client Review',
+    score: 97,
+  },
+  {
+    quote:
+      'Local Lead Engine completely turned our campaigns around. Rebuilt our campaigns from the ground up, and the cost per qualified lead dropped significantly.',
+    name: 'Timothy B.',
+    role: 'Business Owner',
+    rating: '4.9/5',
+    platform: 'Verified Client Review',
+    score: 99,
+  },
+  {
+    quote:
+      "They don't just set up advertisements and disappear, they constantly check on lead quality. They are proactive and helpful partners in our growth.",
+    name: 'Amanda S.',
+    role: 'CEO',
+    rating: '4.9/5',
+    platform: 'Verified Client Review',
+    score: 98,
+  },
+  {
+    quote:
+      'Finally, a provider that talks straight business. The cost per booking decreased by over 50% since partnering with Local Lead Engine.',
+    name: 'Marcus J.',
+    role: 'Business Owner',
+    rating: '4.9/5',
+    platform: 'Verified Client Review',
     score: 99,
   },
 ];
@@ -263,13 +468,22 @@ export type Post = {
   id: string;
   title: string;
   category: string;
+  tradeTag?: string;
   date: string;
   day: string;
   month: string;
   author: string;
+  authorRole?: string;
   image: string;
   excerpt: string;
   readTime: string;
+  keyTakeaways?: string[];
+  contentParagraphs?: string[];
+  caseStudyLink?: {
+    title: string;
+    tradeSlug: string;
+    metric: string;
+  };
 };
 
 export const posts: Post[] = [
@@ -277,66 +491,151 @@ export const posts: Post[] = [
     id: 'stop-wasting-ad-budget',
     title: 'How Contractors Can Stop Wasting Google Ads Budget on DIYers',
     category: 'Google Ads Strategy',
+    tradeTag: 'HVAC & Plumbing',
     date: '12 July 2026',
     day: '12',
     month: 'Jul',
     author: 'Marcus Vance',
-    image: images.deskFlat,
+    authorRole: 'Head of Paid Search',
+    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80',
     excerpt:
-      'Search terms like "free repair guide", "DIY wiring", and "jobs" drain thousands from contractor ad budgets. Here are 120 negative keywords every HVAC and roofing business needs.',
+      'Search terms like "free repair guide", "DIY wiring", and "jobs" drain thousands from contractor ad budgets. Learn how our HVAC case study eliminated 68% of wasted spend.',
     readTime: '6 min read',
+    keyTakeaways: [
+      'Add 120+ standard negative keywords covering DIY, job seekers, and wholesale parts queries.',
+      'Use Exact Match search keywords for high-intent replacement terms like "emergency HVAC replacement near me".',
+      'Set up audience exclusions for visitors who spend less than 10 seconds on site.'
+    ],
+    contentParagraphs: [
+      'When contractors inspect their search query reports inside Google Ads, they are often shocked to discover up to 40% of click budget is squandered on homeowner DIY queries like "how to fix AC compressor capacitor" or "HVAC hiring apprentice".',
+      'By implementing exact match campaign architecture alongside our pre-built 120-term negative keyword list, contractor accounts immediately recover thousands in ad spend that can be reallocated directly to emergency service calls.',
+      'In our NC Heating & Air case study, this single negative keyword overhaul reduced cost per acquisition from $142 down to $38 per booked job in less than 30 days.'
+    ],
+    caseStudyLink: {
+      title: 'NC Heating & Air',
+      tradeSlug: 'hvac',
+      metric: '+310% Booked Jobs'
+    }
   },
   {
     id: 'search-vs-lsa',
     title: 'Google Search Ads vs. LSA: Which Generates Cheaper Calls?',
     category: 'LSA Insights',
+    tradeTag: 'Roofing & Exterior',
     date: '28 June 2026',
     day: '28',
     month: 'Jun',
     author: 'Sarah Jenkins',
-    image: images.bedroomDesk,
+    authorRole: 'LSA Specialist',
+    image: 'https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?auto=format&fit=crop&w=1200&q=80',
     excerpt:
-      'Local Services Ads offer pay-per-call leads, while Search Ads allow custom landing pages. Here is how top-performing contractors combine both for maximum ROI.',
+      'Local Services Ads offer pay-per-call leads, while Search Ads allow custom landing pages. Here is how our Paragon Roofing case study combined both to book 38 full roof replacements in Q2.',
     readTime: '5 min read',
+    keyTakeaways: [
+      'LSA shines for immediate, emergency call generation with built-in Google Guaranteed badge trust.',
+      'Search Ads win on high-ticket custom jobs where dedicated landing pages communicate value.',
+      'Combining LSA + Search Ads captures 65% of top-of-page real estate on mobile devices.'
+    ],
+    contentParagraphs: [
+      'Contractors often treat Google Search Ads and Google Local Services Ads (LSA) as competing channels. In reality, market-leading trades businesses operate both in tandem to dominate top-of-page search results.',
+      'LSA provides pay-per-call accountability with direct dispute capabilities for spam leads, while Search Ads allow custom high-converting landing pages tailored to high-ticket storm damage and full roof replacements.',
+      'Our Paragon Roofing campaign deployed this dual strategy, capturing 38 full roof replacements in Q2 while holding average cost per qualified lead to just $42.'
+    ],
+    caseStudyLink: {
+      title: 'Paragon Roofing',
+      tradeSlug: 'roofing',
+      metric: '38 Full Roof Jobs'
+    }
   },
   {
     id: 'contractor-landing-page-guide',
     title: 'The Anatomy of a Contractor Landing Page That Converts at 25%+',
     category: 'Conversion Optimization',
+    tradeTag: 'Home Remodeling',
     date: '15 June 2026',
     day: '15',
     month: 'Jun',
     author: 'Dave Kowalski',
-    image: images.twoLaptops,
+    authorRole: 'CRO & UI Strategist',
+    image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80',
     excerpt:
-      'Most contractor websites fail because they look like brochure sites. Learn the 7 layout triggers that convert mobile visitors into immediate phone calls.',
+      'Most contractor websites fail because they look like generic brochure sites. Learn the 7 layout triggers that helped Home Repair Service land 46 high-ticket consultations.',
     readTime: '8 min read',
+    keyTakeaways: [
+      'Sticky click-to-call mobile header accessible at all scroll positions.',
+      'Above-the-fold social proof badges (Google 4.9★, Licensed & Insured, Financing Available).',
+      '3-step estimate request form asking for project zip code first before contact info.'
+    ],
+    contentParagraphs: [
+      'Sending paid traffic to a standard homepage is the #1 reason contractor ad campaigns fail. A traditional homepage forces visitors to hunt through navigation menus, resulting in bounce rates over 80%.',
+      'High-converting contractor landing pages focus strictly on single-action conversion: booking a call or submitting an estimate form. Every element above the fold reinforces immediate trust, local licensing, and recent job photos.',
+      'By implementing this dedicated landing page framework for Home Repair Service, lead conversion jumped from 6.2% to 28.4%, yielding 46 new design-build consultation bookings.'
+    ],
+    caseStudyLink: {
+      title: 'Home Repair Service',
+      tradeSlug: 'remodeling',
+      metric: '28.4% Conversion Rate'
+    }
   },
   {
     id: 'disputing-invalid-lsa-leads',
     title: 'How to Dispute Invalid Google LSA Phone Leads for Full Refunds',
     category: 'LSA Insights',
+    tradeTag: 'Plumbing & Electrical',
     date: '02 June 2026',
     day: '02',
     month: 'Jun',
     author: 'Marcus Vance',
-    image: images.teamDesk,
+    authorRole: 'Head of Paid Search',
+    image: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1200&q=80',
     excerpt:
       'Wrong service area? Out of scope? Spam calls? Step-by-step framework for recovering thousands in refund credits directly from Google Local Services Ads.',
     readTime: '4 min read',
+    keyTakeaways: [
+      'Dispute invalid leads within 30 days directly inside the LSA lead inbox.',
+      'Flag out-of-service area calls, job seekers, and sales solicitations for instant credits.',
+      'Train dispatchers to log call reason codes during intake for fast dispute evidence.'
+    ],
+    contentParagraphs: [
+      'Google Local Services Ads charges contractors on a per-call basis, but up to 20% of calls received may be out-of-bounds — including wrong zip codes, job applicants, or services your team does not provide.',
+      'Many contractors leave thousands of dollars on the table by failing to audit and dispute these invalid charges within Google’s 30-day window.',
+      'Our step-by-step dispute logging protocol recovers an average of $850 - $2,400 monthly in ad credits for client accounts.'
+    ],
+    caseStudyLink: {
+      title: 'Pro Flow Plumbing & Drain',
+      tradeSlug: 'plumbing',
+      metric: '$2,400 Monthly Saved'
+    }
   },
   {
     id: 'servicetitan-jobber-attribution',
     title: 'Tracking Real ROAS: Connecting Google Ads to ServiceTitan & Jobber',
     category: 'Analytics & CRM',
+    tradeTag: 'Dispatch & Ops',
     date: '20 May 2026',
     day: '20',
     month: 'May',
     author: 'Sarah Jenkins',
-    image: images.coworking,
+    authorRole: 'Analytics Lead',
+    image: 'https://ik.imagekit.io/Localleadengine/Google%20Ads%20Dashboard.png',
     excerpt:
       'Stop judging campaigns by click counts. How to trace a Google search query directly to a completed $8,500 HVAC replacement inside your dispatch software.',
     readTime: '7 min read',
+    keyTakeaways: [
+      'Pass Google Click Identifier (GCLID) and call tracking data directly into ServiceTitan or Jobber.',
+      'Match completed invoice revenue back to exact campaign, keyword, and ad copy.',
+      'Optimize ad bidding based on high-ticket job value rather than raw lead volume.'
+    ],
+    contentParagraphs: [
+      'Measuring digital marketing success solely by cost-per-click or lead forms is a recipe for missed revenue. A $30 lead for a minor drain clearing is vastly different from a $50 lead that converts into a $12,000 sewer line replacement.',
+      'By establishing dynamic call tracking integration with dispatch tools like ServiceTitan and Jobber, we feed closed invoice revenue data back into Google’s smart bidding algorithm.',
+      'This end-to-end attribution allows us to scale high-margin job keywords while cutting spend on low-value service calls.'
+    ],
+    caseStudyLink: {
+      title: 'Local Lead Engine Performance',
+      tradeSlug: 'hvac',
+      metric: 'Closed ROAS Attribution'
+    }
   },
 ];
 
@@ -365,7 +664,7 @@ export const stats = [
   { value: 100, suffix: '+', label: 'Contractor campaigns managed' },
   { value: 100, suffix: 'K+', label: 'Leads generated' },
   { value: 98, suffix: '%', label: 'Contractor retention rate' },
-  { value: 8, suffix: 'x', label: 'Average Return on Ad Spend (ROAS)' },
+  { value: 8.5, suffix: 'x', label: 'Average Return on Ad Spend (ROAS)' },
 ] as const;
 
 /* ------------------------------------------------------------------ */
@@ -431,7 +730,7 @@ export const resultsTabs: ResultsTab[] = [
     title: 'Average Cost Per Lead ($) by trade category',
     headline: '$38.50',
     headlineLabel: 'Average CPL across all trades',
-    delta: '-62% vs agency average',
+    delta: '-62% vs market average',
     note: 'By combining Google Search Ads with Local Services Ads and tight negative keyword guards, we consistently cut contractor cost per lead by over 60%.',
     labels: ['HVAC', 'Plumbing', 'Roofing', 'Electrical', 'Restoration', 'Landscaping', 'Pest Control', 'Solar'],
     series: [
@@ -545,22 +844,22 @@ export const faqs = [
 
 export const footerColumns = [
   {
-    title: 'Navigation',
+    title: 'Contractor Services',
     links: [
-      { label: 'Home', href: '/' },
-      { label: 'Services', href: '/services' },
-      { label: 'Case Study', href: '/case-studies' },
-      { label: 'About Us', href: '/about' },
-      { label: 'Contact Us', href: '/contact' },
+      { label: 'Roofing Contractors', href: '/contractors/google-ads-for-roofing-contractors/' },
+      { label: 'Foundation Repair', href: '/contractors/google-ads-for-foundation-repair-contractors/' },
+      { label: 'Plumbing Contractors', href: '/contractors/google-ads-for-plumbing-contractors/' },
+      { label: 'HVAC Contractors', href: '/contractors/google-ads-for-hvac-contractors/' },
+      { label: 'Home Remodeling', href: '/contractors/google-ads-for-remodeling-contractors/' },
+      { label: 'Window & Door', href: '/contractors/google-ads-for-window-door-contractors/' },
     ],
   },
   {
     title: 'Services',
     links: [
-      { label: 'Google Search Ads', href: '/services' },
-      { label: 'Local Services Ads (LSA)', href: '/services' },
-      { label: 'Contractor Landing Pages', href: '/services' },
-      { label: 'Click Fraud Shield', href: '/services' },
+      { label: 'Google Ads Management', href: '/services' },
+      { label: 'Conversion Tracking', href: '/services' },
+      { label: 'Landing Page Design', href: '/services' },
     ],
   },
   {
@@ -568,15 +867,16 @@ export const footerColumns = [
     links: [
       { label: 'About Us', href: '/about' },
       { label: 'Case Studies', href: '/case-studies' },
-      { label: 'Contractor Careers', href: '/about#careers' },
-      { label: 'Book Strategy Call', href: '/contact' },
+      { label: 'Book Strategy Call', href: '/strategy-call' },
+      { label: 'Privacy Policy', href: '/privacy' },
+      { label: 'Terms of Service', href: '/terms' },
     ],
   },
 ] as const;
 
 export const contactDetails = {
-  address: ['350 Fifth Avenue, Suite 4800', 'New York, NY 10118'],
-  email: 'hello@localleadengine.com',
-  phone: '(800) 582-1940',
+  address: [] as string[],
+  email: 'localleadengine.io@gmail.com',
+  phone: '+880 1762595245',
   hours: 'Mon – Fri, 7:00 AM – 6:00 PM EST',
 };

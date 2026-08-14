@@ -6,8 +6,8 @@ import { MaskHeading, Reveal } from '@/components/motion';
 
 const Pricing: React.FC = () => {
   return (
-    <section id="pricing" className="bg-cream-deep py-20 sm:py-24 lg:py-28">
-      <div className="shell">
+    <section id="pricing" className="relative overflow-hidden bg-cream py-20 sm:py-24 lg:py-28">
+      <div className="shell relative z-10">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal y={18}>
             <Eyebrow icon="Layers">Plan Comparison</Eyebrow>
@@ -95,7 +95,7 @@ const Pricing: React.FC = () => {
                       }`}
                     >
                       <Btn
-                        to="/contact"
+                        to="/strategy-call"
                         variant={plan.featured ? 'primary' : 'outline'}
                         size="sm"
                         className="mx-auto whitespace-nowrap px-5 py-2.5"

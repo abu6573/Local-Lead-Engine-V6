@@ -31,7 +31,13 @@ const Projects: React.FC = () => {
   const filtered =
     active === 'Show All'
       ? projects
-      : projects.filter((p) => p.tags.includes(active) || p.category === active);
+      : projects.filter(
+          (p) =>
+            p.category === active ||
+            p.tags.includes(active) ||
+            (active === 'Pool & Outdoor' && p.category === 'Pool & Outdoor') ||
+            (active === 'Foundation & Crawl' && p.category === 'Foundation & Crawl')
+        );
 
   const shown = filtered.slice(0, visible);
   const hasMore = filtered.length > shown.length;
@@ -108,6 +114,11 @@ const Projects: React.FC = () => {
                     className="aspect-[4/3] w-full object-cover transition-transform duration-[900ms] ease-smooth group-hover:scale-[1.06]"
                     loading="lazy"
                   />
+                  {p.location && (
+                    <span className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full bg-black/60 backdrop-blur px-3 py-1 text-[0.7rem] font-bold text-white shadow-soft">
+                      <span>{p.location}</span>
+                    </span>
+                  )}
                   <span className="absolute right-3 top-3 inline-flex h-9 w-9 translate-y-2 items-center justify-center rounded-full bg-white text-brand opacity-0 shadow-soft transition-all duration-500 ease-smooth group-hover:translate-y-0 group-hover:opacity-100">
                     <ArrowUpRight className="h-4 w-4" strokeWidth={2.4} aria-hidden="true" />
                   </span>

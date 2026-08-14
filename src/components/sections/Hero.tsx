@@ -64,7 +64,7 @@ const Hero: React.FC = () => {
 
             <div className="mt-9 flex flex-wrap items-center gap-3.5" style={rise(620)}>
               <Btn
-                to="/contact"
+                to="/strategy-call"
                 size="lg"
                 onClick={() => window.supercool?.track('cta_click', { cta: 'hero-book-call' })}
               >
@@ -80,11 +80,11 @@ const Hero: React.FC = () => {
               style={rise(720)}
             >
               <div>
-                <p className="text-2xl font-extrabold text-ink">8x</p>
+                <p className="text-2xl font-extrabold text-ink">8.5x</p>
                 <p className="text-[0.8125rem] text-warm-light">Average ROAS</p>
               </div>
               <div>
-                <p className="text-2xl font-extrabold text-ink">2.5x</p>
+                <p className="text-2xl font-extrabold text-ink">3.3x</p>
                 <p className="text-[0.8125rem] text-warm-light">Average POAS</p>
               </div>
               <div>

@@ -1,60 +1,16 @@
-import React, { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import React from 'react';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 import PageHero from '@/components/PageHero';
 import Pricing from '@/components/sections/Pricing';
+import ContractorsServed from '@/components/sections/ContractorsServed';
+import RoiCalculator from '@/components/sections/RoiCalculator';
 import LogoMarquee from '@/components/sections/LogoMarquee';
 import CtaBanner from '@/components/sections/CtaBanner';
+import Faq from '@/components/Faq';
 import { Btn, Eyebrow, Icon, ReadMore } from '@/components/kit';
 import { MaskHeading, Reveal } from '@/components/motion';
-import { faqs, processSteps, services } from '@/lib/site-data';
-
-const Faq = () => {
-  const [open, setOpen] = useState<number | null>(0);
-
-  return (
-    <div className="mt-12 space-y-4">
-      {faqs.map((f, i) => {
-        const isOpen = open === i;
-        return (
-          <Reveal
-            key={f.q}
-            delay={80 + i * 70}
-            y={20}
-            className="overflow-hidden rounded-[1.25rem] border border-black/[0.06] bg-white shadow-soft transition-shadow duration-300 hover:shadow-card"
-          >
-            <button
-              type="button"
-              onClick={() => setOpen(isOpen ? null : i)}
-              aria-expanded={isOpen}
-              className="flex w-full items-center justify-between gap-5 px-6 py-5 text-left sm:px-7"
-            >
-              <span className="text-[1.0625rem] font-semibold text-ink">{f.q}</span>
-              <span
-                className={`inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-all duration-500 ease-smooth ${
-                  isOpen ? 'rotate-180 bg-brand text-white' : 'bg-cream text-brand'
-                }`}
-              >
-                <ChevronDown className="h-4 w-4" strokeWidth={2.4} aria-hidden="true" />
-              </span>
-            </button>
-            <div
-              className="grid overflow-hidden transition-all duration-500 ease-smooth"
-              style={{ gridTemplateRows: isOpen ? '1fr' : '0fr', opacity: isOpen ? 1 : 0 }}
-            >
-              <div className="min-h-0">
-                <p className="px-6 pb-6 text-[0.9375rem] leading-relaxed text-warm sm:px-7">
-                  {f.a}
-                </p>
-              </div>
-            </div>
-          </Reveal>
-        );
-      })}
-    </div>
-  );
-};
+import { processSteps, services } from '@/lib/site-data';
 
 const Services: React.FC = () => (
   <div className="min-h-screen bg-cream">
@@ -94,7 +50,7 @@ const Services: React.FC = () => (
               </ul>
 
               <div className="mt-auto pt-6">
-                <ReadMore to="/contact" label="Enquire" />
+                <ReadMore to="/strategy-call" label="Book Strategy Call" />
               </div>
             </Reveal>
           ))}
@@ -135,6 +91,9 @@ const Services: React.FC = () => (
         </div>
       </section>
 
+      <ContractorsServed />
+      <RoiCalculator />
+
       <Pricing />
 
       {/* ---- faq ---- */}
@@ -148,8 +107,8 @@ const Services: React.FC = () => (
           </div>
           <Faq />
           <Reveal delay={200} y={20} className="mt-12 flex justify-center">
-            <Btn to="/contact" size="lg">
-              Ask Us Anything
+            <Btn to="/strategy-call" size="lg">
+              Book Strategy Call
             </Btn>
           </Reveal>
         </div>

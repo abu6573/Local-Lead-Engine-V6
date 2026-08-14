@@ -85,7 +85,7 @@ const SiteHeader: React.FC = () => {
           </nav>
 
           <div className="flex items-center gap-3">
-            <Btn to="/contact" size="md" className="hidden sm:inline-flex">
+            <Btn to="/strategy-call" size="md" className="hidden sm:inline-flex">
               Book Strategy Call
             </Btn>
             <button
@@ -201,7 +201,7 @@ const SiteHeader: React.FC = () => {
                 transform: open ? 'translateY(0)' : 'translateY(26px)',
               }}
             >
-              <Btn to="/contact" size="lg" className="w-full" onClick={() => setOpen(false)}>
+              <Btn to="/strategy-call" size="lg" className="w-full" onClick={() => setOpen(false)}>
                 Book Strategy Call
               </Btn>
             </div>

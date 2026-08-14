@@ -12,7 +12,7 @@ const StatsRow: React.FC = () => (
         {stats.map((s, i) => (
           <Reveal key={s.label} delay={100 + i * 90} y={20} className="text-center">
             <p className="text-[2.5rem] font-extrabold leading-none tracking-tight text-ink">
-              <CountUp value={s.value} suffix={s.suffix} />
+              <CountUp value={s.value} decimals={Number.isInteger(s.value) ? 0 : 1} suffix={s.suffix} />
             </p>
             <p className="mt-2.5 text-[0.9375rem] text-warm">{s.label}</p>
           </Reveal>

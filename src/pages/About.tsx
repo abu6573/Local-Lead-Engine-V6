@@ -36,7 +36,7 @@ const About: React.FC = () => (
         eyebrow="About Local Lead Engine"
         eyebrowIcon="Users"
         titleLines={['Google Ads Strategy', 'Built for Local', 'Contractors']}
-        intro="Local Lead Engine is a specialized Google Ads management agency built exclusively for local service contractors. We connect your dispatch team with high-intent homeowners, tracking actual booked jobs in ServiceTitan, Housecall Pro, and Jobber."
+        intro="Local Lead Engine is a specialized Google Ads management partner built exclusively for local service contractors. We connect your dispatch team with high-intent homeowners, tracking actual booked jobs in ServiceTitan, Housecall Pro, and Jobber."
       />
 
       <StatsRow />
@@ -45,15 +45,24 @@ const About: React.FC = () => (
       <section className="py-20 sm:py-24">
         <div className="shell grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
           <Reveal y={36} scale={0.97}>
-            <div className="group overflow-hidden rounded-[2rem] shadow-card">
+            <div className="group relative overflow-hidden rounded-[2rem] border border-black/[0.08] shadow-card">
               <img
-                src={images.teamDesk}
-                alt="The Digiket strategy team reviewing campaign results together"
+                src="https://ik.imagekit.io/Localleadengine/Google%20Ads%20Dashboard.png"
+                alt="Local Lead Engine Google Ads performance dashboard tracking contractor ROI"
                 width={1100}
                 height={737}
-                className="aspect-[4/3] w-full object-cover transition-transform duration-[900ms] ease-smooth group-hover:scale-[1.05]"
+                className="aspect-[4/3] w-full object-cover transition-transform duration-[900ms] ease-smooth group-hover:scale-[1.04]"
                 loading="lazy"
               />
+              <div className="absolute bottom-4 left-4 right-4 rounded-xl bg-black/80 backdrop-blur p-3 text-white text-xs flex items-center justify-between">
+                <div>
+                  <p className="font-extrabold text-brand-light">Google Ads Revenue Attribution</p>
+                  <p className="text-white/80">Real-time ServiceTitan & Jobber Call Sync</p>
+                </div>
+                <span className="rounded-full bg-emerald-600 px-2.5 py-1 text-[0.7rem] font-bold">
+                  Verified Data
+                </span>
+              </div>
             </div>
           </Reveal>
 
@@ -76,8 +85,8 @@ const About: React.FC = () => (
               </p>
             </Reveal>
             <Reveal delay={300} y={20} className="mt-9">
-              <Btn to="/contact" size="lg">
-                Work With Us
+              <Btn to="/strategy-call" size="lg">
+                Book Strategy Call
               </Btn>
             </Reveal>
           </div>

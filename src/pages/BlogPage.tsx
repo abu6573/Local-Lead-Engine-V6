@@ -1,19 +1,34 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 import PageHero from '@/components/PageHero';
 import CtaBanner from '@/components/sections/CtaBanner';
-import { PostCard } from '@/components/sections/BlogGrid';
+import { PostCard, JournalModal } from '@/components/sections/BlogGrid';
 import { Eyebrow } from '@/components/kit';
 import { MaskHeading, Reveal } from '@/components/motion';
-import { posts } from '@/lib/site-data';
+import { posts, type Post } from '@/lib/site-data';
 
 const BlogPage: React.FC = () => {
+  const location = useLocation();
+  const [selectedPost, setSelectedPost] = useState<Post | null>(null);
+
   const categories = useMemo(
     () => ['All Posts', ...Array.from(new Set(posts.map((p) => p.category)))],
     [],
   );
   const [active, setActive] = useState('All Posts');
+
+  // Check URL hash for direct post modal opening
+  useEffect(() => {
+    if (location.hash) {
+      const postId = location.hash.replace('#', '');
+      const match = posts.find((p) => p.id === postId);
+      if (match) {
+        setSelectedPost(match);
+      }
+    }
+  }, [location.hash]);
 
   const list = active === 'All Posts' ? posts : posts.filter((p) => p.category === active);
 
@@ -23,10 +38,10 @@ const BlogPage: React.FC = () => {
       <main>
         <PageHero
           crumb="Blog"
-          eyebrow="Blogs & Articles"
+          eyebrow="From the Journal"
           eyebrowIcon="Newspaper"
-          titleLines={['Notes From', 'the Search', 'Coalface']}
-          intro="Practical writing from the team running the campaigns — audits, content operations and the measurement that proves it worked."
+          titleLines={['Contractor Search', 'Field Journal', '& Strategy']}
+          intro="Actionable search marketing breakdowns from our campaign directors — featuring real contractor Google Ads audits, LSA tactics, and conversion landing page principles."
         />
 
         <section className="pb-8">
@@ -55,7 +70,7 @@ const BlogPage: React.FC = () => {
           <div className="shell grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
             {list.map((post, i) => (
               <div key={post.id} id={post.id} className="scroll-mt-28">
-                <PostCard post={post} index={i} />
+                <PostCard post={post} index={i} onSelect={(p) => setSelectedPost(p)} />
               </div>
             ))}
           </div>
@@ -66,6 +81,8 @@ const BlogPage: React.FC = () => {
             </p>
           )}
         </section>
+
+        <JournalModal post={selectedPost} onClose={() => setSelectedPost(null)} />
 
         <section className="bg-cream-deep py-20 sm:py-24">
           <div className="shell mx-auto max-w-[36rem] text-center">

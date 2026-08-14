@@ -31,7 +31,7 @@ const CtaBanner: React.FC = () => (
 
           <Reveal delay={220} y={20} className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
             <Btn
-              to="/contact"
+              to="/strategy-call"
               size="lg"
               onClick={() => window.supercool?.track('cta_click', { cta: 'cta-banner-book-strategy' })}
             >

@@ -4,19 +4,24 @@ import { Check, Loader2 } from 'lucide-react';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 import PageHero from '@/components/PageHero';
+import Faq from '@/components/Faq';
 import { Btn, Eyebrow, Icon } from '@/components/kit';
 import { MaskHeading, Reveal } from '@/components/motion';
-import { contactDetails, faqs } from '@/lib/site-data';
+import { contactDetails } from '@/lib/site-data';
 import { db } from '@/lib/db';
 
 type Status = 'idle' | 'loading' | 'sent' | 'error';
 
 const detailCards = [
-  {
-    icon: 'MapPin',
-    title: 'Our Office',
-    lines: contactDetails.address,
-  },
+  ...(contactDetails.address.length > 0
+    ? [
+        {
+          icon: 'MapPin',
+          title: 'Our Office',
+          lines: contactDetails.address,
+        },
+      ]
+    : []),
   {
     icon: 'Mail',
     title: 'Email Us',
@@ -115,10 +120,10 @@ const Contact: React.FC = () => {
       <main>
         <PageHero
           crumb="Contact Us"
-          eyebrow="Book Strategy Call"
-          eyebrowIcon="PhoneCall"
-          titleLines={['Book Your Free', 'Google Ads Strategy Call']}
-          intro="Tell us about your contracting business. We will analyze your service area, audit your Google Ads setup, and show you how to generate exclusive booked jobs."
+          eyebrow="Get In Touch"
+          eyebrowIcon="Mail"
+          titleLines={['Get In Touch With', 'Our Google Ads Team']}
+          intro="Have questions about our Google Ads management or want to discuss your contracting goals? Fill out the form below or reach out directly."
         />
 
         <section className="pb-20 sm:pb-24">
@@ -289,7 +294,7 @@ const Contact: React.FC = () => {
 
                   <div className="flex flex-wrap items-center gap-4 pt-1">
                     <Btn type="submit" size="lg" disabled={status === 'loading'}>
-                      {status === 'loading' ? 'Scheduling…' : 'Book Strategy Call'}
+                      {status === 'loading' ? 'Sending…' : 'Send Message'}
                     </Btn>
                     {status === 'loading' && (
                       <Loader2
@@ -318,19 +323,7 @@ const Contact: React.FC = () => {
               <MaskHeading lines={['Common Questions']} className="mt-5 h-section" />
             </div>
 
-            <div className="mt-12 grid gap-5 sm:grid-cols-2">
-              {faqs.map((f, i) => (
-                <Reveal
-                  key={f.q}
-                  delay={80 + i * 80}
-                  y={24}
-                  className="rounded-[1.5rem] border border-black/[0.06] bg-white p-6 transition-shadow duration-500 hover:shadow-card"
-                >
-                  <h3 className="text-[1rem] font-bold text-ink">{f.q}</h3>
-                  <p className="mt-2.5 text-[0.9375rem] leading-relaxed text-warm">{f.a}</p>
-                </Reveal>
-              ))}
-            </div>
+            <Faq />
           </div>
         </section>
       </main>
