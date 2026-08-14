@@ -7,7 +7,6 @@ export interface ContractorTrade {
   title: string;
   companyName: string;
   slug: string;
-  serviceUrl: string;
   icon: string;
   description: string;
   badge: string;
@@ -17,44 +16,23 @@ export const contractorTrades: ContractorTrade[] = [
   {
     title: 'Roofing',
     companyName: 'Paragon Roofing',
-    slug: 'roofing',
-    serviceUrl: '/contractors/google-ads-for-roofing-contractors/',
+    slug: 'google-ads-for-roofing-contractors',
     icon: 'Hammer',
-    description: 'High-ticket roof replacements, storm damage repairs, and commercial re-roofing leads.',
+    description: 'High-ticket roof replacements, storm damage repairs, and full re-roofing leads.',
     badge: 'Full Replacements & Repair',
-  },
-  {
-    title: 'Foundation Repair',
-    companyName: 'Carolina Foundation Pros',
-    slug: 'foundation-repair',
-    serviceUrl: '/contractors/google-ads-for-foundation-repair-contractors/',
-    icon: 'ShieldCheck',
-    description: 'Piering, underpinning, crawl space encapsulation, and structural waterproofing.',
-    badge: 'Structural Piering & Basements',
   },
   {
     title: 'HVAC',
     companyName: 'NC Heating & Air',
-    slug: 'hvac',
-    serviceUrl: '/contractors/google-ads-for-hvac-contractors/',
+    slug: 'google-ads-for-hvac-contractors',
     icon: 'ThermometerSnowflake',
     description: 'AC replacements, furnace installs, emergency repairs, and high-margin system swaps.',
     badge: 'System Swaps & Service',
   },
   {
-    title: 'Plumbing',
-    companyName: 'Pro Flow Plumbing & Drain',
-    slug: 'plumbing',
-    serviceUrl: '/contractors/google-ads-for-plumbing-contractors/',
-    icon: 'Wrench',
-    description: 'Emergency repipes, sewer line replacements, water heaters, and hydro jetting.',
-    badge: 'Emergency & Repipes',
-  },
-  {
     title: 'Home Remodeling',
     companyName: 'Home Repair Service',
-    slug: 'remodeling',
-    serviceUrl: '/contractors/google-ads-for-remodeling-contractors/',
+    slug: 'google-ads-for-remodeling-contractors',
     icon: 'PaintRoller',
     description: 'Kitchen remodels, bathroom renovations, and whole-home custom remodeling projects.',
     badge: 'Kitchens & Baths',
@@ -62,11 +40,26 @@ export const contractorTrades: ContractorTrade[] = [
   {
     title: 'Window & Door',
     companyName: 'Universal Windows Direct of Charlotte',
-    slug: 'windows-doors',
-    serviceUrl: '/contractors/google-ads-for-window-door-contractors/',
+    slug: 'google-ads-for-window-door-contractors',
     icon: 'DoorClosed',
     description: 'Whole-house window replacements, custom entry doors, and energy-efficient upgrades.',
     badge: 'Full House Replacement',
+  },
+  {
+    title: 'Deck & Outdoor Living',
+    companyName: 'Carolina Deck & Patio',
+    slug: 'google-ads-for-deck-outdoor-living-contractors',
+    icon: 'Hammer',
+    description: 'Custom composite deck builds, covered porches, pergolas, and outdoor living spaces.',
+    badge: 'Custom Decks & Patios',
+  },
+  {
+    title: 'Solar Contractors',
+    companyName: 'SunState Solar',
+    slug: 'google-ads-for-solar-contractors',
+    icon: 'SunMedium',
+    description: 'Rooftop solar installations, battery backup systems, and clean energy solutions.',
+    badge: 'Rooftop & Battery Storage',
   },
 ];
 
@@ -76,10 +69,10 @@ const ContractorsServed: React.FC = () => {
       <div className="shell">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal y={18}>
-            <Eyebrow icon="Building2">Serving Local Service Contractors</Eyebrow>
+            <Eyebrow icon="Building2">Serving Local Service Category</Eyebrow>
           </Reveal>
           <MaskHeading
-            lines={['Local Service Contractors', 'We Drive High-Ticket Leads For']}
+            lines={['Local Service Categories', 'We Drive High-Ticket Leads For']}
             className="mt-5 h-section"
             delay={80}
           />
@@ -94,7 +87,7 @@ const ContractorsServed: React.FC = () => {
           {contractorTrades.map((trade, i) => (
             <Reveal key={trade.slug} delay={80 + (i % 3) * 80} y={24}>
               <Link
-                to={trade.serviceUrl}
+                to={`/contractors/${trade.slug}`}
                 className="group relative flex flex-col justify-between overflow-hidden rounded-[1.75rem] border border-black/[0.06] bg-white p-7 shadow-soft transition-all duration-500 ease-smooth hover:-translate-y-1.5 hover:border-brand/30 hover:shadow-lift h-full"
               >
                 <div>
@@ -120,7 +113,7 @@ const ContractorsServed: React.FC = () => {
                 </div>
 
                 <div className="mt-6 pt-4 border-t border-black/[0.04] flex items-center justify-between text-[0.8125rem] font-bold text-brand">
-                  <span>View Google Ads Strategy</span>
+                  <span>View Campaign Strategy</span>
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
                     &rarr;
                   </span>

@@ -2,234 +2,268 @@ import React from 'react';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 import PageHero from '@/components/PageHero';
-import StatsRow from '@/components/sections/StatsRow';
-import Testimonials from '@/components/sections/Testimonials';
+import ContractorsServed from '@/components/sections/ContractorsServed';
 import CtaBanner from '@/components/sections/CtaBanner';
-import { Avatar, Btn, Eyebrow, Icon } from '@/components/kit';
+import { Btn, Eyebrow } from '@/components/kit';
 import { MaskHeading, Reveal } from '@/components/motion';
-import { images, openRoles, processSteps, team } from '@/lib/site-data';
+import { images, processSteps, socialLinks } from '@/lib/site-data';
+import { Check, Linkedin } from 'lucide-react';
 
-const values = [
+const experienceHighlights = [
   {
-    icon: 'Compass',
-    title: 'Evidence over opinion',
-    body: 'Every recommendation traces back to crawl data, query data or revenue data. If we cannot measure it, we do not bill for it.',
+    number: '6+',
+    label: 'Contractor categories served with dedicated search frameworks',
   },
   {
-    icon: 'Handshake',
-    title: 'Partnership, not vendor',
-    body: 'We sit in your planning meetings, learn your margins, and prioritise the keywords that move your business — not the ones easiest to rank.',
+    number: '100%',
+    label: 'Focus on local service contractors and home services',
   },
   {
-    icon: 'Gauge',
-    title: 'Speed with rigour',
-    body: 'Weekly shipping cadence, quarterly strategy reviews. Momentum is a competitive advantage in search.',
+    number: 'Daily',
+    label: 'Search term reviews and negative keyword management',
+  },
+  {
+    number: 'Direct',
+    label: 'Call tracking integration with your dispatch phone lines',
   },
 ];
 
-const About: React.FC = () => (
-  <div className="min-h-screen bg-cream">
-    <SiteHeader />
-    <main>
-      <PageHero
-        crumb="About Us"
-        eyebrow="About Local Lead Engine"
-        eyebrowIcon="Users"
-        titleLines={['Google Ads Strategy', 'Built for Local', 'Contractors']}
-        intro="Local Lead Engine is a specialized Google Ads management partner built exclusively for local service contractors. We connect your dispatch team with high-intent homeowners, tracking actual booked jobs in ServiceTitan, Housecall Pro, and Jobber."
-      />
+const About: React.FC = () => {
+  return (
+    <div className="min-h-screen bg-cream">
+      <SiteHeader />
+      <main>
+        {/* 1. Hero */}
+        <PageHero
+          crumb="About Us"
+          eyebrow="About Local Lead Engine"
+          eyebrowIcon="Users"
+          titleLines={['Google Ads Management', 'For Local Contractors']}
+          intro="We help local contractors run Google Ads that turn searchers into scheduled estimates and actual booked jobs."
+        />
 
-      <StatsRow />
-
-      {/* ---- story ---- */}
-      <section className="py-20 sm:py-24">
-        <div className="shell grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
-          <Reveal y={36} scale={0.97}>
-            <div className="group relative overflow-hidden rounded-[2rem] border border-black/[0.08] shadow-card">
-              <img
-                src="https://ik.imagekit.io/Localleadengine/Google%20Ads%20Dashboard.png"
-                alt="Local Lead Engine Google Ads performance dashboard tracking contractor ROI"
-                width={1100}
-                height={737}
-                className="aspect-[4/3] w-full object-cover transition-transform duration-[900ms] ease-smooth group-hover:scale-[1.04]"
-                loading="lazy"
-              />
-              <div className="absolute bottom-4 left-4 right-4 rounded-xl bg-black/80 backdrop-blur p-3 text-white text-xs flex items-center justify-between">
-                <div>
-                  <p className="font-extrabold text-brand-light">Google Ads Revenue Attribution</p>
-                  <p className="text-white/80">Real-time ServiceTitan & Jobber Call Sync</p>
-                </div>
-                <span className="rounded-full bg-emerald-600 px-2.5 py-1 text-[0.7rem] font-bold">
-                  Verified Data
-                </span>
-              </div>
-            </div>
-          </Reveal>
-
-          <div>
-            <Reveal y={18}>
-              <Eyebrow icon="BookOpen">Our Story</Eyebrow>
-            </Reveal>
-            <MaskHeading
-              lines={['Founded by Strategists', 'Tired of Vanity Metrics']}
-              className="mt-5 h-section"
-            />
-            <Reveal delay={140} y={22}>
-              <p className="mt-5 body-lg">
-                We started Local Lead Engine after watching trade contractors burn thousands on generic marketing agencies celebrating vanity clicks that never generated real phone calls or booked jobs.
-              </p>
-            </Reveal>
-            <Reveal delay={220} y={22}>
-              <p className="mt-4 body-lg">
-                Today we manage Google Search Ads, Local Services Ads (LSA), and custom high-converting landing pages for HVAC, Plumbing, Roofing, and Electrical contractors across the country.
-              </p>
-            </Reveal>
-            <Reveal delay={300} y={20} className="mt-9">
-              <Btn to="/strategy-call" size="lg">
-                Book Strategy Call
-              </Btn>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ---- values ---- */}
-      <section className="bg-cream-deep py-20 sm:py-24">
-        <div className="shell">
-          <div className="mx-auto max-w-[34rem] text-center">
-            <Reveal y={18}>
-              <Eyebrow icon="Heart">What We Believe</Eyebrow>
-            </Reveal>
-            <MaskHeading lines={['Principles Behind', 'Every Engagement']} className="mt-5 h-section" />
-          </div>
-
-          <div className="mt-14 grid gap-7 md:grid-cols-3">
-            {values.map((v, i) => (
-              <Reveal
-                key={v.title}
-                delay={100 + i * 90}
-                y={28}
-                className="group rounded-[1.75rem] border border-black/[0.06] bg-white p-7 transition-all duration-500 ease-smooth hover:-translate-y-2 hover:shadow-lift"
-              >
-                <span className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-brand/25 bg-brand-soft text-brand transition-all duration-500 ease-smooth group-hover:scale-110 group-hover:bg-brand group-hover:text-white">
-                  <Icon name={v.icon} className="h-6 w-6" strokeWidth={1.7} />
-                </span>
-                <h3 className="mt-6 h-card">{v.title}</h3>
-                <p className="mt-3 text-[0.9375rem] leading-relaxed text-warm">{v.body}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ---- process ---- */}
-      <section className="py-20 sm:py-24">
-        <div className="shell">
-          <div className="max-w-[34rem]">
-            <Reveal y={18}>
-              <Eyebrow icon="Route">How We Work</Eyebrow>
-            </Reveal>
-            <MaskHeading lines={['A Four-Stage', 'Growth Engine']} className="mt-5 h-section" />
-          </div>
-
-          <div className="mt-14 grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
-            {processSteps.map((s, i) => (
-              <Reveal
-                key={s.step}
-                delay={100 + i * 90}
-                y={28}
-                className="group relative rounded-[1.75rem] bg-white p-7 shadow-soft transition-all duration-500 ease-smooth hover:-translate-y-2 hover:shadow-lift"
-              >
-                <span className="text-[2.75rem] font-extrabold leading-none tracking-tight text-brand/25 transition-colors duration-500 group-hover:text-brand">
-                  {s.step}
-                </span>
-                <h3 className="mt-4 h-card">{s.title}</h3>
-                <p className="mt-2.5 text-[0.9375rem] leading-relaxed text-warm">{s.body}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ---- team ---- */}
-      <section id="team" className="bg-cream-deep py-20 sm:py-24">
-        <div className="shell">
-          <div className="mx-auto max-w-[34rem] text-center">
-            <Reveal y={18}>
-              <Eyebrow icon="Users">The People</Eyebrow>
-            </Reveal>
-            <MaskHeading lines={['Meet The Team Member']} className="mt-5 h-section" />
-          </div>
-
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {team.map((m, i) => (
-              <Reveal
-                key={m.name}
-                delay={80 + i * 70}
-                y={26}
-                className="group flex items-center gap-4 rounded-[1.5rem] border border-black/[0.06] bg-white p-5 transition-all duration-500 ease-smooth hover:-translate-y-1.5 hover:shadow-card"
-              >
-                <Avatar name={m.name} size={56} index={i} />
-                <div>
-                  <h3 className="text-[1.0625rem] font-bold text-ink">{m.name}</h3>
-                  <p className="mt-0.5 text-[0.875rem] text-warm">{m.role}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ---- careers ---- */}
-      <section id="careers" className="py-20 sm:py-24">
-        <div className="shell">
-          <div className="grid items-end gap-8 lg:grid-cols-[1.4fr_1fr]">
+        {/* 2. Who We Are */}
+        <section className="py-20 sm:py-24 border-t border-black/[0.06] bg-white">
+          <div className="shell grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
               <Reveal y={18}>
-                <Eyebrow icon="Briefcase">Careers</Eyebrow>
+                <Eyebrow icon="Compass">Who We Are</Eyebrow>
               </Reveal>
-              <MaskHeading lines={['Open Roles at', 'Local Lead Engine']} className="mt-5 h-section" />
-            </div>
-            <Reveal delay={140} y={20}>
-              <p className="body-lg lg:text-right">
-                Four-day fortnights, a real training budget, and no timesheets. We hire for curiosity
-                first.
-              </p>
-            </Reveal>
-          </div>
-
-          <div className="mt-12 overflow-hidden rounded-[1.75rem] border border-black/[0.06] bg-white shadow-soft">
-            {openRoles.map((r, i) => (
-              <Reveal
-                key={r.title}
-                delay={80 + i * 70}
-                y={18}
-                className={`group flex flex-wrap items-center justify-between gap-4 px-6 py-6 transition-colors duration-300 hover:bg-cream sm:px-8 ${
-                  i > 0 ? 'border-t border-black/[0.06]' : ''
-                }`}
-              >
-                <div>
-                  <h3 className="text-[1.0625rem] font-bold text-ink transition-colors duration-300 group-hover:text-brand">
-                    {r.title}
-                  </h3>
-                  <p className="mt-1 text-[0.875rem] text-warm-light">
-                    {r.type} &middot; {r.place}
-                  </p>
-                </div>
-                <Btn to="/contact" variant="outline" size="sm">
-                  Apply Now
+              <MaskHeading
+                lines={['A Dedicated Google Ads Team', 'For Local Service Contractors']}
+                className="mt-5 h-section"
+              />
+              <Reveal delay={140} y={22}>
+                <p className="mt-5 body-lg text-warm">
+                  Local Lead Engine is a specialized Google Ads management team working exclusively with local service contractors.
+                </p>
+              </Reveal>
+              <Reveal delay={220} y={22}>
+                <p className="mt-4 text-[1rem] leading-relaxed text-warm">
+                  We do not try to be a general marketing agency that does everything from social media graphics to print flyers. We focus on one core job: building and managing Google Ads campaigns that generate real phone calls and quote requests for local contractors.
+                </p>
+              </Reveal>
+              <Reveal delay={300} y={20} className="mt-8">
+                <Btn to="/google-ads-for-local-service-contractors" variant="outline" size="md">
+                  Explore Our Services
                 </Btn>
               </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+            </div>
 
-      <Testimonials />
-      <CtaBanner />
-    </main>
-    <SiteFooter />
-  </div>
-);
+            <Reveal y={30} scale={0.98}>
+              <div className="overflow-hidden rounded-[2rem] border border-black/[0.08] bg-cream p-8 shadow-card">
+                <div className="space-y-5">
+                  <div className="flex items-start gap-4">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand text-white">
+                      <Check className="h-5 w-5" strokeWidth={2.5} />
+                    </span>
+                    <div>
+                      <h3 className="text-base font-bold text-ink">Contractor-Focused Campaigns</h3>
+                      <p className="mt-1 text-sm text-warm">
+                        Built around high-margin installation and replacement jobs that keep your crews busy.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand text-white">
+                      <Check className="h-5 w-5" strokeWidth={2.5} />
+                    </span>
+                    <div>
+                      <h3 className="text-base font-bold text-ink">Verified Local Search Intent</h3>
+                      <p className="mt-1 text-sm text-warm">
+                        Targeting people who need immediate quotes, not DIY tips or cheap repair guides.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand text-white">
+                      <Check className="h-5 w-5" strokeWidth={2.5} />
+                    </span>
+                    <div>
+                      <h3 className="text-base font-bold text-ink">Transparent Reporting</h3>
+                      <p className="mt-1 text-sm text-warm">
+                        Direct access to your ad accounts with clear data on lead volume and cost per call.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* 3. How We Work (from Services Page Our Process) */}
+        <section className="bg-cream-deep py-20 sm:py-24 border-y border-black/[0.06]">
+          <div className="shell">
+            <div className="mx-auto max-w-[34rem] text-center">
+              <Reveal y={18}>
+                <Eyebrow icon="Route">How We Work</Eyebrow>
+              </Reveal>
+              <MaskHeading
+                lines={['From Audit to', 'Ongoing Growth']}
+                className="mt-5 h-section"
+              />
+            </div>
+
+            <div className="mt-14 grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
+              {processSteps.map((s, i) => (
+                <Reveal
+                  key={s.step}
+                  delay={100 + i * 90}
+                  y={28}
+                  className="group relative rounded-[1.75rem] bg-white p-7 shadow-soft transition-all duration-500 ease-smooth hover:-translate-y-2 hover:shadow-card"
+                >
+                  <span className="text-[2.75rem] font-extrabold leading-none tracking-tight text-brand/25 transition-colors duration-500 group-hover:text-brand">
+                    {s.step}
+                  </span>
+                  <h3 className="mt-4 h-card">{s.title}</h3>
+                  <p className="mt-2.5 text-[0.9375rem] leading-relaxed text-warm">{s.body}</p>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 4. Our Experience */}
+        <section className="py-20 sm:py-24 bg-white">
+          <div className="shell">
+            <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+              <div>
+                <Reveal y={18}>
+                  <Eyebrow icon="Sparkles">Our Experience</Eyebrow>
+                </Reveal>
+                <MaskHeading
+                  lines={['Years of Managing Search Ads', 'For Local Service Contractors']}
+                  className="mt-5 h-section"
+                />
+                <Reveal delay={140} y={22}>
+                  <p className="mt-5 body-lg text-warm">
+                    We understand how local customers search when they need a roof replaced after a storm, an air conditioner fixed during hot weather, or a kitchen remodeled before the holidays.
+                  </p>
+                </Reveal>
+                <Reveal delay={220} y={22}>
+                  <p className="mt-4 text-[1rem] leading-relaxed text-warm">
+                    That practical understanding allows us to set accurate match types, build effective negative keyword lists, and write straightforward ad copy that attracts serious property owners rather than bargain hunters.
+                  </p>
+                </Reveal>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4 sm:gap-6">
+                {experienceHighlights.map((item, idx) => (
+                  <Reveal
+                    key={item.number}
+                    delay={100 + idx * 80}
+                    y={20}
+                    className="rounded-2xl border border-black/[0.06] bg-cream p-6 shadow-soft"
+                  >
+                    <p className="text-2xl sm:text-3xl font-extrabold text-brand">{item.number}</p>
+                    <p className="mt-2 text-xs sm:text-sm font-medium text-warm leading-snug">
+                      {item.label}
+                    </p>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 5. Who We Work With (Serving Local Service Category from Home Page) */}
+        <ContractorsServed />
+
+        {/* 6. Founder */}
+        <section className="py-20 sm:py-24 bg-white border-t border-black/[0.06]">
+          <div className="shell">
+            <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
+              <Reveal y={30} scale={0.97} className="mx-auto w-full max-w-sm lg:max-w-none">
+                <div className="relative overflow-hidden rounded-[2rem] border border-black/[0.08] bg-cream-dark shadow-card">
+                  <img
+                    src={images.heroPortrait}
+                    alt="Abu Salah, Founder of Local Lead Engine"
+                    width={900}
+                    height={1100}
+                    className="w-full object-cover aspect-[4/5]"
+                    loading="lazy"
+                  />
+                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-white">
+                    <p className="text-xl font-bold text-white">Abu Salah</p>
+                    <p className="text-sm text-white/80">Founder, Local Lead Engine</p>
+                  </div>
+                </div>
+              </Reveal>
+
+              <div>
+                <Reveal y={18}>
+                  <Eyebrow icon="User">Founder</Eyebrow>
+                </Reveal>
+                <MaskHeading lines={['Meet The Founder']} className="mt-5 h-section" />
+                
+                <Reveal delay={140} y={22}>
+                  <div className="mt-6 rounded-2xl border border-brand/20 bg-cream p-6 shadow-soft">
+                    <p className="text-base sm:text-lg font-medium text-ink leading-relaxed">
+                      "I'm Abu Salah, and I work with local service contractors who already run Google Ads but struggle to turn clicks into actual jobs. They keep spending money on clicks that never turn into real work."
+                    </p>
+                  </div>
+                </Reveal>
+
+                <Reveal delay={220} y={22}>
+                  <p className="mt-5 text-[1rem] leading-relaxed text-warm">
+                    I focus on the practical details that make campaigns succeed in competitive local markets: setting up strict negative keywords, building fast-loading pages that answer customer questions, and reviewing call recordings to make sure you get quality inquiries.
+                  </p>
+                </Reveal>
+
+                <Reveal delay={300} y={22}>
+                  <p className="mt-4 text-[1rem] leading-relaxed text-warm">
+                    When you work with Local Lead Engine, you work directly with someone who understands local contractor marketing and is committed to making your advertising budget work for your business.
+                  </p>
+                </Reveal>
+
+                <Reveal delay={360} y={20} className="mt-8 flex flex-wrap items-center gap-3">
+                  <Btn to="/strategy-call" size="md">
+                    Book Strategy Call
+                  </Btn>
+                  <a
+                    href={socialLinks.linkedin}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="inline-flex items-center gap-2 rounded-xl border border-black/10 bg-white px-4 py-2.5 text-sm font-semibold text-ink shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:border-brand/30 hover:text-brand"
+                  >
+                    <Linkedin className="h-4 w-4 text-[#0A66C2]" />
+                    Connect on LinkedIn
+                  </a>
+                </Reveal>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 7. CTA Card (from Home Page) */}
+        <CtaBanner />
+      </main>
+      <SiteFooter />
+    </div>
+  );
+};
 
 export default About;

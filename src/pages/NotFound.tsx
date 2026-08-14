@@ -7,7 +7,7 @@ import { MaskHeading, Reveal } from '@/components/motion';
 const quickLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
-  { label: 'Services', href: '/services' },
+  { label: 'Services', href: '/google-ads-for-local-service-contractors' },
   { label: 'Case Studies', href: '/case-studies' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },

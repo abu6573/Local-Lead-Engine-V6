@@ -32,23 +32,19 @@ export type NavItem = {
 
 export const navItems: NavItem[] = [
   { label: 'Home', href: '/' },
+  { label: 'Services', href: '/google-ads-for-local-service-contractors' },
   {
-    label: 'Contractors',
-    href: '/contractors/google-ads-for-roofing-contractors/',
+    label: 'Categories',
+    href: '/google-ads-for-local-service-contractors',
     children: [
-      { label: 'Roofing Contractors', href: '/contractors/google-ads-for-roofing-contractors/' },
-      { label: 'Foundation Repair', href: '/contractors/google-ads-for-foundation-repair-contractors/' },
-      { label: 'Plumbing Contractors', href: '/contractors/google-ads-for-plumbing-contractors/' },
-      { label: 'HVAC Contractors', href: '/contractors/google-ads-for-hvac-contractors/' },
-      { label: 'Home Remodeling', href: '/contractors/google-ads-for-remodeling-contractors/' },
-      { label: 'Window & Door', href: '/contractors/google-ads-for-window-door-contractors/' },
-      { label: 'Solar Contractors', href: '/contractors/google-ads-for-solar-contractors/' },
-      { label: 'Pool Contractors', href: '/contractors/google-ads-for-pool-contractors/' },
-      { label: 'Deck & Outdoor Living', href: '/contractors/google-ads-for-deck-outdoor-living-contractors/' },
-      { label: 'General Contractors', href: '/contractors/google-ads-for-general-contractors/' },
+      { label: 'Roofing Contractors', href: '/contractors/google-ads-for-roofing-contractors' },
+      { label: 'HVAC Contractors', href: '/contractors/google-ads-for-hvac-contractors' },
+      { label: 'Home Remodeling Contractors', href: '/contractors/google-ads-for-remodeling-contractors' },
+      { label: 'Window & Door Contractors', href: '/contractors/google-ads-for-window-door-contractors' },
+      { label: 'Deck & Outdoor Living', href: '/contractors/google-ads-for-deck-outdoor-living-contractors' },
+      { label: 'Solar Contractors', href: '/contractors/google-ads-for-solar-contractors' },
     ],
   },
-  { label: 'Services', href: '/services' },
   { label: 'Case Study', href: '/case-studies' },
   { label: 'About Us', href: '/about' },
   { label: 'Contact Us', href: '/contact' },
@@ -93,7 +89,7 @@ export const growFeatures = [
   {
     icon: 'LayoutTemplate',
     title: '25%+ Conversion Landing Pages',
-    body: 'High-speed mobile landing pages custom-engineered for HVAC, Roofing, Plumbing, and Electrical trade contractors.',
+    body: 'High-speed mobile landing pages custom-engineered for HVAC, Roofing, Plumbing, and Electrical contractors.',
   },
 ] as const;
 
@@ -132,7 +128,7 @@ export const projects: Project[] = [
     category: 'HVAC',
     tradeSlug: 'hvac',
     tags: ['HVAC', 'Search Ads', 'Call Tracking'],
-    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://ik.imagekit.io/Localleadengine/Google%20Ads%20for%20HVAC%20Contractors.png',
     summary:
       'Scaled monthly booked AC replacement and emergency repair calls from 34 to 182 in 90 days while slashing cost-per-lead by 68%.',
     metric: '6.2x',
@@ -165,7 +161,7 @@ export const projects: Project[] = [
     category: 'Roofing',
     tradeSlug: 'roofing',
     tags: ['Roofing', 'Search Ads', 'LSA'],
-    image: 'https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://ik.imagekit.io/Localleadengine/Google%20Ads%20for%20Roofing%20Contractors?updatedAt=1786700490544',
     summary:
       'Captured 38 full roof replacement contracts in Q2 using storm-surge bidding and high-intent local search ads.',
     metric: '142',
@@ -197,7 +193,7 @@ export const projects: Project[] = [
     category: 'Home Remodeling',
     tradeSlug: 'remodeling',
     tags: ['Home Remodeling', 'Landing Pages', 'High-Ticket'],
-    image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://ik.imagekit.io/Localleadengine/Google%20Ads%20for%20Home%20Remodeling%20Contractors?updatedAt=1786700511856',
     summary:
       'Shifted focus from low-budget handyman repairs to exclusive kitchen & master bathroom design-build consultations.',
     metric: '18.4%',
@@ -229,7 +225,7 @@ export const projects: Project[] = [
     category: 'Decks, Patios & Outdoor Living',
     tradeSlug: 'deck-patio-outdoor-living',
     tags: ['Decks, Patios & Outdoor Living', 'Decks', 'LSA'],
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://ik.imagekit.io/Localleadengine/Google%20Ads%20for%20Deck%20&%20Outdoor%20Living%20Contractors.png',
     summary:
       'Filled entire spring and summer custom composite deck, porch, and patio construction schedule in under 45 days.',
     metric: '210',
@@ -261,7 +257,7 @@ export const projects: Project[] = [
     category: 'Window & Door',
     tradeSlug: 'windows-doors',
     tags: ['Window & Door', 'Search Ads', 'Landing Pages'],
-    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://ik.imagekit.io/Localleadengine/Google%20Ads%20for%20Window%20&%20Door%20Contractors?updatedAt=1786700619760',
     summary:
       'Booked 86 full-house window & custom door replacement consultations with high-converting mobile campaigns.',
     metric: '24.2%',
@@ -293,7 +289,7 @@ export const projects: Project[] = [
     category: 'Solar',
     tradeSlug: 'solar',
     tags: ['Solar', 'Clean Energy', 'Search Ads'],
-    image: 'https://images.unsplash.com/photo-1508873696983-2df5057d0168?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://ik.imagekit.io/Localleadengine/Google%20Ads%20for%20Solar%20Contractors.png',
     summary:
       'Replaced generic lead brokers with exclusive local residential solar and battery storage Google Ads leads.',
     metric: '5.5x',
@@ -537,7 +533,7 @@ export const posts: Post[] = [
       'Combining LSA + Search Ads captures 65% of top-of-page real estate on mobile devices.'
     ],
     contentParagraphs: [
-      'Contractors often treat Google Search Ads and Google Local Services Ads (LSA) as competing channels. In reality, market-leading trades businesses operate both in tandem to dominate top-of-page search results.',
+      'Contractors often treat Google Search Ads and Google Local Services Ads (LSA) as competing channels. In reality, market-leading contractor businesses operate both in tandem to dominate top-of-page search results.',
       'LSA provides pay-per-call accountability with direct dispute capabilities for spam leads, while Search Ads allow custom high-converting landing pages tailored to high-ticket storm damage and full roof replacements.',
       'Our Paragon Roofing campaign deployed this dual strategy, capturing 38 full roof replacements in Q2 while holding average cost per qualified lead to just $42.'
     ],
@@ -727,9 +723,9 @@ export const resultsTabs: ResultsTab[] = [
     icon: 'DollarSign',
     kind: 'bar',
     format: 'int',
-    title: 'Average Cost Per Lead ($) by trade category',
+    title: 'Average Cost Per Lead ($) by contractor category',
     headline: '$38.50',
-    headlineLabel: 'Average CPL across all trades',
+    headlineLabel: 'Average CPL across all contractors',
     delta: '-62% vs market average',
     note: 'By combining Google Search Ads with Local Services Ads and tight negative keyword guards, we consistently cut contractor cost per lead by over 60%.',
     labels: ['HVAC', 'Plumbing', 'Roofing', 'Electrical', 'Restoration', 'Landscaping', 'Pest Control', 'Solar'],
@@ -825,41 +821,108 @@ export const openRoles = [
 
 export const faqs = [
   {
-    q: 'How quickly will phone calls start coming in?',
-    a: 'Google Ads Search and LSA campaigns go live within 5 to 7 business days following onboarding. Inbound calls usually start within hours of campaign launch.',
+    q: 'How can Google Ads management help my business get more inquiries?',
+    a: 'Google Ads management helps local service businesses reach people searching for their services on Google. We manage campaigns, keywords, ads, tracking, and budget to help turn relevant searches into calls and form inquiries.',
   },
   {
-    q: 'What makes our approach different for contractors?',
-    a: 'We specialize in local service contractors in plumbing, HVAC, roofing, and electrical trades. Instead of reporting impressions or raw clicks, we measure phone calls, booked appointments, and total job revenue.',
+    q: 'Do I still need Google Ads management if I already run Google Ads?',
+    a: 'If you already run Google Ads, management can help review your campaigns, search terms, conversion tracking, budget, and account structure to see where improvements can be made.',
   },
   {
-    q: 'Who pays for the Google Ad spend?',
-    a: 'You pay Google directly through your own Google Ads account. We manage and optimize your account for a flat monthly fee.',
+    q: 'What types of businesses does Google Ads management work for?',
+    a: 'Google Ads management works well for local service businesses such as roofing, HVAC, home remodeling, window and door, deck and outdoor living, and solar contractors.',
   },
   {
-    q: 'Do you require long-term contracts?',
-    a: 'No, we operate on month-to-month agreements with clear communication and regular updates.',
+    q: 'Can Google Ads management improve the quality of inquiries I get?',
+    a: 'Yes. Google Ads management can focus campaigns on relevant services, locations, keywords, and searches that are more closely related to the work your business provides.',
+  },
+  {
+    q: 'How much does Google Ads management cost?',
+    a: 'The cost of Google Ads management depends on the services included, campaign size, number of locations, and amount of work needed to manage the account.',
+  },
+  {
+    q: 'How long does it take to see results from Google Ads?',
+    a: 'Some campaigns can start receiving inquiries soon after launch. More time is usually needed to collect enough data to evaluate performance and make informed campaign changes.',
+  },
+  {
+    q: 'Do I need a big budget to get started with Google Ads?',
+    a: 'You do not need the same budget as every other business. The right Google Ads budget depends on your service, location, competition, average job value, and business capacity.',
+  },
+  {
+    q: 'Do I need a website for Google Ads?',
+    a: 'A good website is important for Google Ads because visitors need a clear place to learn about your service and contact your business. We can review your existing website before recommending changes.',
+  },
+  {
+    q: 'Can you manage my existing Google Ads account?',
+    a: 'Yes. We can review your existing Google Ads account and work with the current campaigns, conversion tracking, keywords, ads, and budget.',
+  },
+  {
+    q: 'How do I get started with Google Ads management?',
+    a: 'We start by reviewing your business, services, locations, website, current Google Ads account, and conversion tracking. Then we can explain what needs to be done to get started.',
+  },
+] as const;
+
+export const servicePageFaqs = [
+  {
+    q: 'How can Google Ads for Local Service Contractors help my business?',
+    a: 'Google Ads for Local Service Contractors can put your business in front of people searching for the services you provide in your service area.',
+  },
+  {
+    q: 'What types of contractors can use Google Ads?',
+    a: 'Google Ads can work for roofing contractors, HVAC contractors, remodeling contractors, window and door contractors, deck contractors, outdoor living contractors, solar contractors, and other local service businesses.',
+  },
+  {
+    q: 'Do I still need Google Ads management if I already run Google Ads?',
+    a: 'If your campaigns are already running, Google Ads management can help review keywords, search terms, locations, ads, conversion tracking, bidding, and budget use.',
+  },
+  {
+    q: 'Can Google Ads for Local Service Contractors improve the quality of inquiries?',
+    a: 'Yes. Campaigns can focus on relevant services, locations, and search terms instead of sending the budget toward searches that are not useful for your business.',
+  },
+  {
+    q: 'How do Google Local Services Ads work for contractors?',
+    a: 'Google Local Services Ads can help eligible contractors appear when people search for local services. Customers can contact the business through available lead options such as calls, messages, and bookings where supported.',
+  },
+  {
+    q: 'What is the difference between Google Ads and Local Services Ads?',
+    a: 'Google Ads and Local Services Ads are different advertising options. Standard Google Ads can send people to your website, while Local Services Ads are built around local service inquiries and lead generation.',
+  },
+  {
+    q: 'How much do Google Local Services Ads cost?',
+    a: 'With Local Services Ads, you pay for valid leads rather than every click. Lead prices can vary based on factors such as location, job type, lead type, and bidding settings.',
+  },
+  {
+    q: 'Do reviews matter for Google Local Services Ads?',
+    a: 'Yes. Your rating and number of reviews can affect how your business is ranked in Local Services Ads.',
+  },
+  {
+    q: 'Can you help manage Google Local Services Ads?',
+    a: 'Yes. We can review your Local Services Ads setup, business profile, service areas, job types, budget, leads, reviews, and performance alongside your standard Google Ads campaigns.',
+  },
+  {
+    q: 'How do I get started with Google Ads and Local Services Ads?',
+    a: 'We first review your services, locations, website, Google Ads account, Local Services Ads account if you have one, tracking, and budget. From there, we can recommend the right setup for your business.',
   },
 ] as const;
 
 export const footerColumns = [
   {
-    title: 'Contractor Services',
+    title: 'Categories',
     links: [
-      { label: 'Roofing Contractors', href: '/contractors/google-ads-for-roofing-contractors/' },
-      { label: 'Foundation Repair', href: '/contractors/google-ads-for-foundation-repair-contractors/' },
-      { label: 'Plumbing Contractors', href: '/contractors/google-ads-for-plumbing-contractors/' },
-      { label: 'HVAC Contractors', href: '/contractors/google-ads-for-hvac-contractors/' },
-      { label: 'Home Remodeling', href: '/contractors/google-ads-for-remodeling-contractors/' },
-      { label: 'Window & Door', href: '/contractors/google-ads-for-window-door-contractors/' },
+      { label: 'Roofing Contractors', href: '/contractors/google-ads-for-roofing-contractors' },
+      { label: 'HVAC Contractors', href: '/contractors/google-ads-for-hvac-contractors' },
+      { label: 'Home Remodeling Contractors', href: '/contractors/google-ads-for-remodeling-contractors' },
+      { label: 'Window & Door Contractors', href: '/contractors/google-ads-for-window-door-contractors' },
+      { label: 'Deck & Outdoor Living', href: '/contractors/google-ads-for-deck-outdoor-living-contractors' },
+      { label: 'Solar Contractors', href: '/contractors/google-ads-for-solar-contractors' },
     ],
   },
   {
     title: 'Services',
     links: [
-      { label: 'Google Ads Management', href: '/services' },
-      { label: 'Conversion Tracking', href: '/services' },
-      { label: 'Landing Page Design', href: '/services' },
+      { label: 'Google Ads Management', href: '/google-ads-for-local-service-contractors' },
+      { label: 'Conversion Tracking', href: '/google-ads-for-local-service-contractors' },
+      { label: 'Landing Page Design', href: '/google-ads-for-local-service-contractors' },
     ],
   },
   {
@@ -867,6 +930,8 @@ export const footerColumns = [
     links: [
       { label: 'About Us', href: '/about' },
       { label: 'Case Studies', href: '/case-studies' },
+      { label: 'Blogs', href: '/blog' },
+      { label: 'FAQs', href: '/faqs' },
       { label: 'Book Strategy Call', href: '/strategy-call' },
       { label: 'Privacy Policy', href: '/privacy' },
       { label: 'Terms of Service', href: '/terms' },
@@ -879,4 +944,10 @@ export const contactDetails = {
   email: 'localleadengine.io@gmail.com',
   phone: '+880 1762595245',
   hours: 'Mon – Fri, 7:00 AM – 6:00 PM EST',
+};
+
+export const socialLinks = {
+  linkedin: 'https://www.linkedin.com/in/abu-salah/',
+  instagram: 'https://www.instagram.com/local_lead_engine/',
+  facebook: 'https://www.facebook.com/localleadengine.io',
 };

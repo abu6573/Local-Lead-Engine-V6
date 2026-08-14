@@ -8,13 +8,13 @@ const GrowBusiness: React.FC = () => (
       <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
         {/* ---- Image Column ---- */}
         <Reveal y={36} scale={0.97} className="relative mx-auto w-full max-w-lg lg:max-w-none">
-          <div className="group relative overflow-hidden rounded-[2rem] shadow-card">
+          <div className="relative overflow-hidden rounded-[2rem] shadow-card">
             <img
-              src="https://ik.imagekit.io/Localleadengine/Exclusive%20Features?updatedAt=1785941954078"
+              src="https://ik.imagekit.io/Localleadengine/Exclusive%20Features?updatedAt=1786669658192"
               alt="Exclusive Features for Google Ads Management"
               width={1200}
               height={1500}
-              className="aspect-[4/4.5] w-full object-cover transition-transform duration-[900ms] ease-smooth group-hover:scale-[1.05]"
+              className="aspect-[4/4.5] w-full object-cover"
               loading="lazy"
               referrerPolicy="no-referrer"
             />

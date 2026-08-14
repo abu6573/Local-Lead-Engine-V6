@@ -1,15 +1,27 @@
 import React, { useState } from 'react';
 import { ArrowLeft, ArrowRight, Quote } from 'lucide-react';
-import { testimonials } from '@/lib/site-data';
+import { testimonials, Testimonial } from '@/lib/site-data';
 import { Avatar, Stars } from '@/components/kit';
 import { MaskHeading, Reveal } from '@/components/motion';
 
-const Testimonials: React.FC = () => {
+interface TestimonialsProps {
+  items?: Testimonial[];
+  titleLines?: string[];
+  eyebrow?: string;
+}
+
+const Testimonials: React.FC<TestimonialsProps> = ({
+  items = testimonials,
+  titleLines = ['What Contractors', 'Say About Us'],
+  eyebrow,
+}) => {
   const [i, setI] = useState(0);
-  const t = testimonials[i];
+  const activeItems = items && items.length > 0 ? items : testimonials;
+  const currentIdx = i % activeItems.length;
+  const t = activeItems[currentIdx];
 
   const go = (dir: number) =>
-    setI((prev) => (prev + dir + testimonials.length) % testimonials.length);
+    setI((prev) => (prev + dir + activeItems.length) % activeItems.length);
 
   return (
     <section id="testimonials" className="bg-cream py-20 sm:py-24 lg:py-28">
@@ -23,14 +35,19 @@ const Testimonials: React.FC = () => {
           <div className="relative grid items-center gap-12 lg:grid-cols-[1.1fr_1fr]">
             {/* ---- quote side ---- */}
             <div>
+              {eyebrow && (
+                <span className="mb-4 inline-block text-xs font-bold uppercase tracking-wider text-brand">
+                  {eyebrow}
+                </span>
+              )}
               <MaskHeading
-                lines={['What Customer', 'Say About Us']}
+                lines={titleLines}
                 className="text-[clamp(1.9rem,3.6vw,2.9rem)] font-bold leading-[1.1] tracking-tight text-white"
               />
 
-              <div key={i} className="mt-9 animate-fade-in">
+              <div key={currentIdx} className="mt-9 animate-fade-in">
                 <div className="flex items-center gap-3.5">
-                  <Avatar name={t.name} size={48} index={i} />
+                  <Avatar name={t.name} size={48} index={currentIdx} />
                   <div>
                     <p className="text-[1.0625rem] font-bold text-white">
                       {t.name} <span className="font-normal text-white/40">\</span>{' '}
@@ -62,7 +79,7 @@ const Testimonials: React.FC = () => {
                   type="button"
                   onClick={() => go(-1)}
                   aria-label="Previous testimonial"
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition-all duration-300 ease-smooth hover:-translate-y-0.5 hover:border-brand hover:bg-brand"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition-all duration-300 ease-smooth hover:-translate-y-0.5 hover:border-brand hover:bg-brand cursor-pointer"
                 >
                   <ArrowLeft className="h-4 w-4" strokeWidth={2.2} />
                 </button>
@@ -70,16 +87,16 @@ const Testimonials: React.FC = () => {
                   type="button"
                   onClick={() => go(1)}
                   aria-label="Next testimonial"
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition-all duration-300 ease-smooth hover:-translate-y-0.5 hover:border-brand hover:bg-brand"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition-all duration-300 ease-smooth hover:-translate-y-0.5 hover:border-brand hover:bg-brand cursor-pointer"
                 >
                   <ArrowRight className="h-4 w-4" strokeWidth={2.2} />
                 </button>
                 <div className="ml-2 flex items-center gap-1.5" aria-hidden="true">
-                  {testimonials.map((_, d) => (
+                  {activeItems.map((_, d) => (
                     <span
                       key={d}
                       className={`h-1.5 rounded-full transition-all duration-500 ease-smooth ${
-                        d === i ? 'w-6 bg-brand' : 'w-1.5 bg-white/25'
+                        d === currentIdx ? 'w-6 bg-brand' : 'w-1.5 bg-white/25'
                       }`}
                     />
                   ))}
@@ -99,7 +116,7 @@ const Testimonials: React.FC = () => {
               </div>
 
               <span className="absolute left-4 top-4 rounded-full bg-brand px-3.5 py-1.5 text-[0.75rem] font-bold text-white shadow-chip">
-                Recommendations
+                Verified Reviews
               </span>
             </div>
           </div>

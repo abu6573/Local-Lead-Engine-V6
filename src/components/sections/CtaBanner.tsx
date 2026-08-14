@@ -29,7 +29,7 @@ const CtaBanner: React.FC = () => (
             </p>
           </Reveal>
 
-          <Reveal delay={220} y={20} className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
+          <Reveal delay={220} y={20} className="mt-9 flex flex-wrap items-center gap-4">
             <Btn
               to="/strategy-call"
               size="lg"
@@ -37,7 +37,15 @@ const CtaBanner: React.FC = () => (
             >
               Book Strategy Call
             </Btn>
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-semibold text-ink">
+            <Btn
+              to="/contact"
+              variant="outline"
+              size="lg"
+              onClick={() => window.supercool?.track('cta_click', { cta: 'cta-banner-free-audit' })}
+            >
+              Get Free Audit
+            </Btn>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-semibold text-ink sm:ml-2">
               <span className="inline-flex items-center gap-2">
                 <Check className="h-4 w-4 text-brand stroke-[2.5]" aria-hidden="true" />
                 Free Strategy Call

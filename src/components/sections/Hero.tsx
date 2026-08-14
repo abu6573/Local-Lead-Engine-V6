@@ -70,8 +70,13 @@ const Hero: React.FC = () => {
               >
                 Book Strategy Call
               </Btn>
-              <Btn to="/services" variant="outline" size="lg">
-                Explore Services
+              <Btn
+                to="/contact"
+                variant="outline"
+                size="lg"
+                onClick={() => window.supercool?.track('cta_click', { cta: 'hero-free-audit' })}
+              >
+                Get Free Audit
               </Btn>
             </div>
 

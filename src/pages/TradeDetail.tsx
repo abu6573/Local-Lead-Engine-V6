@@ -4,7 +4,10 @@ import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 import PageHero from '@/components/PageHero';
 import RoiCalculator from '@/components/sections/RoiCalculator';
+import Pricing from '@/components/sections/Pricing';
+import Testimonials from '@/components/sections/Testimonials';
 import CtaBanner from '@/components/sections/CtaBanner';
+import Faq from '@/components/Faq';
 import { Btn, Eyebrow, Icon } from '@/components/kit';
 import { MaskHeading, Reveal } from '@/components/motion';
 import { tradeDetailsData } from '@/lib/trade-data';
@@ -16,7 +19,7 @@ const TradeDetail: React.FC = () => {
   const trade = slug ? tradeDetailsData[slug] : undefined;
 
   if (!trade) {
-    return <Navigate to="/services" replace />;
+    return <Navigate to="/google-ads-for-local-service-contractors" replace />;
   }
 
   const otherTrades = contractorTrades.filter((t) => t.slug !== trade.slug);
@@ -32,7 +35,7 @@ const TradeDetail: React.FC = () => {
       <main>
         {/* Hero */}
         <PageHero
-          crumb={`Trades / ${trade.tradeName}`}
+          crumb={`Contractors / ${trade.tradeName}`}
           eyebrow={trade.badge}
           eyebrowIcon={trade.icon}
           titleLines={trade.heroTitle}
@@ -256,13 +259,22 @@ const TradeDetail: React.FC = () => {
         {/* ROI Calculator */}
         <RoiCalculator />
 
-        {/* FAQs for this trade */}
+        {/* Contractor Testimonials */}
+        <Testimonials
+          titleLines={[`What ${trade.tradeName} Pros`, 'Say About Us']}
+          eyebrow={`${trade.tradeName} Reviews`}
+        />
+
+        {/* Pricing / Plan Comparison */}
+        <Pricing />
+
+        {/* FAQs for this contractor */}
         {trade.faqs.length > 0 && (
-          <section className="py-20 bg-white border-y border-black/[0.06]">
-            <div className="shell max-w-4xl">
+          <section className="py-20 sm:py-24 bg-cream border-y border-black/[0.06]">
+            <div className="shell max-w-[52rem]">
               <div className="text-center">
                 <Reveal y={18}>
-                  <Eyebrow icon="HelpCircle">Trade FAQs</Eyebrow>
+                  <Eyebrow icon="MessageCircleQuestion">Questions</Eyebrow>
                 </Reveal>
                 <MaskHeading
                   lines={['Frequently Asked Questions', `About ${trade.tradeName} Ads`]}
@@ -271,26 +283,17 @@ const TradeDetail: React.FC = () => {
                 />
               </div>
 
-              <div className="mt-12 space-y-6">
-                {trade.faqs.map((faq, i) => (
-                  <Reveal key={faq.q} delay={i * 60} y={16}>
-                    <div className="rounded-2xl border border-black/[0.06] bg-cream p-6 sm:p-8">
-                      <h3 className="text-lg font-bold text-ink">{faq.q}</h3>
-                      <p className="mt-3 text-[0.9375rem] leading-relaxed text-warm">{faq.a}</p>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
+              <Faq items={trade.faqs} />
             </div>
           </section>
         )}
 
-        {/* Explore Other Contractor Trades */}
+        {/* Explore Other Contractor Categories */}
         <section className="py-20 bg-cream">
           <div className="shell">
             <div className="text-center">
               <Reveal y={18}>
-                <Eyebrow icon="Building2">Explore Other Trades</Eyebrow>
+                <Eyebrow icon="Building2">Explore Other Contractors</Eyebrow>
               </Reveal>
               <MaskHeading
                 lines={['Specialized Google Ads Management', 'For Other Contractor Sectors']}

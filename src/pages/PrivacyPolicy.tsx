@@ -36,7 +36,7 @@ const PrivacyPolicy: React.FC = () => {
                   </p>
                   <ul className="space-y-3 text-sm text-warm pl-4 border-l-2 border-brand/20">
                     <li>
-                      <strong className="text-ink font-bold">Personal & Business Information:</strong> When you request a strategy call, campaign audit, or contact us, we collect your full name, business email address, phone number, company name, trade specialty (e.g., HVAC, Plumbing, Roofing), service area zip codes, and estimated monthly ad budget.
+                      <strong className="text-ink font-bold">Personal & Business Information:</strong> When you request a strategy call, campaign audit, or contact us, we collect your full name, business email address, phone number, company name, contractor specialty (e.g., HVAC, Plumbing, Roofing), service area zip codes, and estimated monthly ad budget.
                     </li>
                     <li>
                       <strong className="text-ink font-bold">Advertising & Campaign Data:</strong> To manage your Google Ads and Local Services Ads (LSA) accounts, we access campaign configurations, conversion logs, call recording metadata (via CallRail), and dispatch CRM metrics (e.g., ServiceTitan, Jobber).

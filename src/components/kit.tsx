@@ -172,7 +172,7 @@ export const Eyebrow = ({
 /* ------------------------------------------------------------------ */
 
 export const ReadMore = ({
-  to = '/services',
+  to = '/google-ads-for-local-service-contractors',
   label = 'Read More',
 }: {
   to?: string;

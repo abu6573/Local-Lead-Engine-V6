@@ -1,16 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
-import { contactDetails, footerColumns } from '@/lib/site-data';
+import { ArrowUpRight, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { contactDetails, footerColumns, socialLinks } from '@/lib/site-data';
 
 import { Wordmark } from '@/components/kit';
 import { Reveal } from '@/components/motion';
 
 const socials = [
-  { name: 'Twitter', Icon: Twitter, href: 'https://twitter.com' },
-  { name: 'LinkedIn', Icon: Linkedin, href: 'https://linkedin.com' },
-  { name: 'Instagram', Icon: Instagram, href: 'https://instagram.com' },
-  { name: 'Facebook', Icon: Facebook, href: 'https://facebook.com' },
+  { name: 'LinkedIn', Icon: Linkedin, href: socialLinks.linkedin },
+  { name: 'Instagram', Icon: Instagram, href: socialLinks.instagram },
+  { name: 'Facebook', Icon: Facebook, href: socialLinks.facebook },
 ];
 
 const aiPrompt = encodeURIComponent('What is https://localleadengine.io/, and how can it help me?');

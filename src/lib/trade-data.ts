@@ -112,7 +112,7 @@ export const tradeDetailsData: Record<string, TradeDetail> = {
     painPoints: [
       {
         title: 'Low Budget Inquiry Clutter',
-        desc: 'Homeowners wanting a $2,000 quick refresh waste your time. We filter for major $20k+ structural and design-build projects.',
+        desc: 'Homeowners wanting small cosmetic fixes waste your time. We filter for major structural, kitchen, bathroom, and design-build projects.',
       },
       {
         title: 'Long Sales Cycles',

@@ -10,7 +10,7 @@ import CtaBanner from '@/components/sections/CtaBanner';
 import Faq from '@/components/Faq';
 import { Btn, Eyebrow, Icon, ReadMore } from '@/components/kit';
 import { MaskHeading, Reveal } from '@/components/motion';
-import { processSteps, services } from '@/lib/site-data';
+import { processSteps, services, servicePageFaqs } from '@/lib/site-data';
 
 const Services: React.FC = () => (
   <div className="min-h-screen bg-cream">
@@ -105,12 +105,7 @@ const Services: React.FC = () => (
             </Reveal>
             <MaskHeading lines={['Frequently Asked']} className="mt-5 h-section" />
           </div>
-          <Faq />
-          <Reveal delay={200} y={20} className="mt-12 flex justify-center">
-            <Btn to="/strategy-call" size="lg">
-              Book Strategy Call
-            </Btn>
-          </Reveal>
+          <Faq items={servicePageFaqs} />
         </div>
       </section>
 

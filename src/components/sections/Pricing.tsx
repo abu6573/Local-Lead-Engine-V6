@@ -95,12 +95,12 @@ const Pricing: React.FC = () => {
                       }`}
                     >
                       <Btn
-                        to="/strategy-call"
+                        to={`/contact?plan=${encodeURIComponent(plan.name)}`}
                         variant={plan.featured ? 'primary' : 'outline'}
                         size="sm"
                         className="mx-auto whitespace-nowrap px-5 py-2.5"
                       >
-                        Choose Package
+                        Choose {plan.name}
                       </Btn>
                     </td>
                   ))}

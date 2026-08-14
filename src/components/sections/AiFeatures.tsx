@@ -35,7 +35,7 @@ const AiFeatures: React.FC = () => (
               <h3 className="mt-6 h-card">{f.title}</h3>
               <p className="mt-3 text-[0.9375rem] leading-relaxed text-warm">{f.body}</p>
               <div className="mt-6">
-                <ReadMore to="/services" />
+                <ReadMore to="/google-ads-for-local-service-contractors" />
               </div>
               <span className="pointer-events-none absolute inset-x-7 bottom-0 h-px origin-left scale-x-0 bg-gradient-to-r from-brand to-transparent transition-transform duration-500 ease-smooth group-hover:scale-x-100" />
             </Reveal>
